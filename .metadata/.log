@@ -1,0 +1,116 @@
+!SESSION 2024-07-15 17:52:16.367 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=20.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-15 17:52:21.371
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-15 17:53:24.927
+!MESSAGE Logback config file: C:\Users\VICTO\Documents\Cursos\UnB\ENS\4º\OO\Exercicios\Avaliativo\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-15 17:53:37.575
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\VICTO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.director 2 10054 2024-07-15 17:54:04.542
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE Software being installed: artificial_root 1.0.0.v1721076842122
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:54:04.542
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE Mylyn IDE UI 3.26.1.v20230604-1755 (org.eclipse.mylyn.ide.ui 3.26.1.v20230604-1755)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE Mylyn IDE UI 4.2.0.v20240220-1733 (org.eclipse.mylyn.ide.ui 4.2.0.v20240220-1733)
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:54:04.542
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE From: artificial_root 1.0.0.v1721076842122
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.feature.feature.group 4.2.0.v20240220-1733
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:54:04.542
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.542
+!MESSAGE From: artificial_root 1.0.0.v1721076842122
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.543
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide_feature.feature.group 0.0.0
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:54:04.543
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.543
+!MESSAGE From: Mylyn Context Connector: Eclipse IDE 4.2.0.v20240220-1733 (org.eclipse.mylyn.ide.feature.feature.group 4.2.0.v20240220-1733)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.543
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.ui [4.2.0.v20240220-1733,4.2.0.v20240220-1733]
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:54:04.543
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.543
+!MESSAGE From: Mylyn Context Connector: Eclipse IDE 3.26.1.v20230604-1755 (org.eclipse.mylyn.ide_feature.feature.group 3.26.1.v20230604-1755)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:54:04.543
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.ui [3.26.1.v20230604-1755,3.26.1.v20230604-1755]
+
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2024-07-15 17:54:04.545
+!MESSAGE Setup tasks were performed during startup. See 'C:\Users\VICTO\eclipse\java-2023-06\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
+!SESSION 2024-07-15 17:58:47.615 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=20.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-15 17:58:51.396
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-15 17:58:57.170
+!MESSAGE Logback config file: C:\Users\VICTO\Documents\Cursos\UnB\ENS\4º\OO\Exercicios\Avaliativo\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-15 17:59:02.906
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\VICTO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.director 2 10054 2024-07-15 17:59:20.577
+!MESSAGE Cannot complete the install because of a conflicting dependency.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE Software being installed: artificial_root 1.0.0.v1721077158176
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:59:20.577
+!MESSAGE Only one of the following can be installed at once: 
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE Mylyn IDE UI 3.26.1.v20230604-1755 (org.eclipse.mylyn.ide.ui 3.26.1.v20230604-1755)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE Mylyn IDE UI 4.2.0.v20240220-1733 (org.eclipse.mylyn.ide.ui 4.2.0.v20240220-1733)
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:59:20.577
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE From: artificial_root 1.0.0.v1721077158176
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.feature.feature.group 4.2.0.v20240220-1733
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:59:20.577
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE From: artificial_root 1.0.0.v1721077158176
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide_feature.feature.group 0.0.0
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:59:20.577
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE From: Mylyn Context Connector: Eclipse IDE 4.2.0.v20240220-1733 (org.eclipse.mylyn.ide.feature.feature.group 4.2.0.v20240220-1733)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.ui [4.2.0.v20240220-1733,4.2.0.v20240220-1733]
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2024-07-15 17:59:20.577
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE From: Mylyn Context Connector: Eclipse IDE 3.26.1.v20230604-1755 (org.eclipse.mylyn.ide_feature.feature.group 3.26.1.v20230604-1755)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2024-07-15 17:59:20.577
+!MESSAGE To: org.eclipse.equinox.p2.iu; org.eclipse.mylyn.ide.ui [3.26.1.v20230604-1755,3.26.1.v20230604-1755]
+
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2024-07-15 17:59:20.581
+!MESSAGE Setup tasks were performed during startup. See 'C:\Users\VICTO\eclipse\java-2023-06\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details

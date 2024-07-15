@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\VICTO\Documents\Cursos\UnB\ENS\4º\OO\Exercicios\Avaliativo\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3187592999.index
+2839864776.index
