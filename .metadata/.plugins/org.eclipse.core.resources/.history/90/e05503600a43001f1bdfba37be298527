@@ -1,0 +1,37 @@
+package view;
+
+import app.Professor;
+import cadastros.CadastroProfessor;
+
+public class MenuProfessor {
+
+	public static void menuProfessor(CadastroProfessor cadProf) {
+
+	}
+
+	public static Professor dadosNovoProfessor() {
+		// Professor professor = new Professor();
+
+		return null;
+	}
+
+	public static String lerNome() {
+		return "";
+	}
+	
+	public static String lerCPF() {
+		return "";
+	}
+	
+	public static String lerEmail() {
+		return "";
+	}
+	
+	public static String lerMatriculaFUB() {
+		return "";
+	}
+	
+	public static String lerAreaFormacao() {
+		return "";
+	}
+}

@@ -11,7 +11,7 @@ public class MenuAluno {
 		String nome = lerNome();
 		String cpf = lerCPF();
 		String email = lerEmail();
-		String matricula = lerMatricula(); 
+		String matricula = lerMatricula();
 		String curso = lerCurso();
 		return new Aluno(nome, cpf, email, matricula, curso);
 	}
@@ -37,14 +37,10 @@ public class MenuAluno {
 	}
 
 	public static void menuAluno(CadastroAluno cadAluno) {
-		String txt = "Informe a opção desejada \n"
-				+ "1 - Cadastrar aluno\n"
-				+ "2 - Pesquisar aluno\n"
-				+ "3 - Atualizar aluno\n"
-				+ "4 - Remover aluno\n"
-				+ "0 - Voltar para menu anterior";
-		
-		int opcao=-1;
+		String txt = "Informe a opção desejada \n" + "1 - Cadastrar aluno\n" + "2 - Pesquisar aluno\n"
+				+ "3 - Atualizar aluno\n" + "4 - Remover aluno\n" + "0 - Voltar para menu anterior";
+
+		int opcao = -1;
 		do {
 			String strOpcao = JOptionPane.showInputDialog(txt);
 			opcao = Integer.parseInt(strOpcao);
@@ -54,24 +50,24 @@ public class MenuAluno {
 				Aluno novoAluno = dadosNovoAluno();
 				cadAluno.cadastrarAluno(novoAluno);
 				break;
-				
-			case 2: 
+
+			case 2:
 				String matricula = lerMatricula();
 				Aluno a = cadAluno.pesquisarAluno(matricula);
 				if (a != null)
 					JOptionPane.showMessageDialog(null, a.toString());
 				break;
-				
-			case 3: 
-				matricula = lerMatricula(); 
+
+			case 3:
+				matricula = lerMatricula();
 				Aluno novoCadastro = dadosNovoAluno();
 				boolean atualizado = cadAluno.atualizarAluno(matricula, novoCadastro);
 				if (atualizado) {
 					JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
 				}
 				break;
-				
-			case 4: 
+
+			case 4:
 				matricula = lerMatricula();
 				Aluno remover = cadAluno.pesquisarAluno(matricula);
 				boolean removido = cadAluno.removerAluno(remover);
@@ -86,6 +82,4 @@ public class MenuAluno {
 		} while (opcao != 0);
 		return;
 	}
-
-
 }

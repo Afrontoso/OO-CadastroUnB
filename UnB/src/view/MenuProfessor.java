@@ -29,9 +29,9 @@ public class MenuProfessor {
 	}
 
 	private static String lerMatriculaFUB() {
-		return JOptionPane.showInputDialog("Informe a matricula do professor: ");
+		return JOptionPane.showInputDialog("Informe a matriculaFUB do professor: ");
 	}
-	
+
 	private static String lerAreaFormacao() {
 		return JOptionPane.showInputDialog("Informe o curso do professor: ");
 	}
@@ -52,24 +52,28 @@ public class MenuProfessor {
 				break;
 
 			case 2:
-				String matricula = lerMatriculaFUB();
-				Professor p = cadProfessor.pesquisarProfessor(matricula);
-				if (p != null)
+				String matriculaFUB = lerMatriculaFUB();
+				Professor p = cadProfessor.pesquisarProfessor(matriculaFUB);
+				if (p != null) {
 					JOptionPane.showMessageDialog(null, p.toString());
-				break;
-
+					break;
+				}else {
+					JOptionPane.showMessageDialog(null, "Matricula não encontrado.");
+					break;
+				}
+				
 			case 3:
-				matricula = lerMatriculaFUB();
+				matriculaFUB = lerMatriculaFUB();
 				Professor novoCadastro = dadosNovoProfessor();
-				boolean atualizado = cadProfessor.atualizarProfessor(matricula, novoCadastro);
+				boolean atualizado = cadProfessor.atualizarProfessor(matriculaFUB, novoCadastro);
 				if (atualizado) {
 					JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
 				}
 				break;
 
 			case 4:
-				matricula = lerMatriculaFUB();
-				Professor remover = cadProfessor.pesquisarProfessor(matricula);
+				matriculaFUB = lerMatriculaFUB();
+				Professor remover = cadProfessor.pesquisarProfessor(matriculaFUB);
 				boolean removido = cadProfessor.removerProfessor(remover);
 				if (removido) {
 					JOptionPane.showMessageDialog(null, "Professor removido do cadastro");
