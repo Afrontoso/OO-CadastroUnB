@@ -1,0 +1,90 @@
+package view;
+
+public class MenuDisciplina {
+	package view;
+
+	import javax.swing.JOptionPane;
+
+	import app.Disciplina;
+	import cadastros.CadastroDisciplina;
+
+	public class MenuDisciplina {
+
+		public static Disciplina dadosNovoDisciplina() {
+			String nome = lerNome();
+			String cpf = lerCPF();
+			String email = lerEmail();
+			String matricula = lerMatricula();
+			String curso = lerCurso();
+			return new Disciplina(nome, cpf, email, matricula, curso);
+		}
+
+		private static String lerCurso() {
+			return JOptionPane.showInputDialog("Informe o curso do aluno: ");
+		}
+
+		private static String lerEmail() {
+			return JOptionPane.showInputDialog("Informe o email do aluno: ");
+		}
+
+		private static String lerCPF() {
+			return JOptionPane.showInputDialog("Informe o CPF do aluno: ");
+		}
+
+		private static String lerNome() {
+			return JOptionPane.showInputDialog("Informe o nome do aluno: ");
+		}
+
+		private static String lerMatricula() {
+			return JOptionPane.showInputDialog("Informe a matricula do aluno: ");
+		}
+
+		public static void MenuDisciplina(CadastroDisciplina cadDisciplina) {
+			String txt = "Informe a opção desejada \n" + "1 - Cadastrar aluno\n" + "2 - Pesquisar aluno\n"
+					+ "3 - Atualizar aluno\n" + "4 - Remover aluno\n" + "0 - Voltar para menu anterior";
+
+			int opcao = -1;
+			do {
+				String strOpcao = JOptionPane.showInputDialog(txt);
+				opcao = Integer.parseInt(strOpcao);
+
+				switch (opcao) {
+				case 1:
+					Disciplinas novoDisciplinas = dadosNovoDisciplinas();
+					cadDisciplinas.cadastrarDisciplinas(novoDisciplinas);
+					break;
+
+				case 2:
+					String matricula = lerMatricula();
+					Disciplinas a = cadDisciplinas.pesquisarDisciplinas(matricula);
+					if (a != null)
+						JOptionPane.showMessageDialog(null, a.toString());
+					break;
+
+				case 3:
+					matricula = lerMatricula();
+					Disciplinas novoCadastro = dadosNovoDisciplinas();
+					boolean atualizado = cadDisciplinas.atualizarDisciplinas(matricula, novoCadastro);
+					if (atualizado) {
+						JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
+					}
+					break;
+
+				case 4:
+					matricula = lerMatricula();
+					Disciplinas remover = cadDisciplinas.pesquisarDisciplinas(matricula);
+					boolean removido = cadDisciplinas.removerDisciplinas(remover);
+					if (removido) {
+						JOptionPane.showMessageDialog(null, "Disciplinas removido do cadastro");
+						System.gc();
+					}
+
+				default:
+					break;
+				}
+			} while (opcao != 0);
+			return;
+		}
+	}
+
+}
