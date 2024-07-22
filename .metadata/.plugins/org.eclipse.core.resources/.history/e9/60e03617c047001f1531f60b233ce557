@@ -62,7 +62,7 @@ public class CadastroDisciplina {
 	public boolean atualizarDisciplina(String codigo, Disciplina d) {
 		int i;
 		for (i=0; i< 11; i++) {
-			if (disciplinas[i].getCodigo().equalsIgnoreCase(codigo)) {
+			if (disciplinas[i].getCodigo().equalsIgnoreCase(matricula)) {
 				break;
 			}
 		}
