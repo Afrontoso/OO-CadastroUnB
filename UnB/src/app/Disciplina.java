@@ -1,10 +1,8 @@
 package app;
 
-public class Disciplina{
-	public String nome;
-	public String codigo;
-	public String departamento;
-	
+public class Disciplina {
+	String nome, codigo, departamento;
+
 	public Disciplina(String nome, String codigo, String departamento) {
 		this.nome = nome;
 		this.codigo = codigo;
@@ -22,14 +20,15 @@ public class Disciplina{
 	public final String getDepartamento() {
 		return departamento;
 	}
+
 	protected void finalize() throws Throwable {
 		System.out.println("Destruindo objeto: " + this);
 	}
-	
+
 	public String toString() {
 		String resposta = super.toString() + '\n';
 		resposta += "NOME: " + nome + '\n';
-		resposta += "DEPARTAMENTO: " + departamento + '\n'; 
+		resposta += "DEPARTAMENTO: " + departamento + '\n';
 		resposta += "CODIGO: " + codigo + '\n';
 		return resposta;
 	}

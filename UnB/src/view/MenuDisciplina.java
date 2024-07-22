@@ -14,16 +14,16 @@ public class MenuDisciplina {
 		return new Disciplina(nome, codigo, departamento);
 	}
 
-	private static String lerDepartamento() {
-		return JOptionPane.showInputDialog("Informe o departamento da disciplina: ");
+	private static String lerNome() {
+		return JOptionPane.showInputDialog("Informe o nome da disciplina: ");
 	}
 
 	private static String lerCodigo() {
 		return JOptionPane.showInputDialog("Informe o Codigo da disciplina: ");
 	}
 
-	private static String lerNome() {
-		return JOptionPane.showInputDialog("Informe o nome da disciplina: ");
+	private static String lerDepartamento() {
+		return JOptionPane.showInputDialog("Informe o departamento da disciplina: ");
 	}
 
 	public static void menuDisciplina(CadastroDisciplina cadDisciplina) {
@@ -44,8 +44,11 @@ public class MenuDisciplina {
 			case 2:
 				String codigo = lerCodigo();
 				Disciplina d = cadDisciplina.pesquisarDisciplina(codigo);
-				if (d != null)
+				if (d != null) {
 					JOptionPane.showMessageDialog(null, d.toString());
+				}else {
+					JOptionPane.showMessageDialog(null, "Codigo incorreta ou não existe.");
+				}
 				break;
 
 			case 3:
@@ -67,6 +70,9 @@ public class MenuDisciplina {
 				}
 
 			default:
+				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n"
+						+ "Tente novamente!");
+				opcao = -1;
 				break;
 			}
 		} while (opcao != 0);

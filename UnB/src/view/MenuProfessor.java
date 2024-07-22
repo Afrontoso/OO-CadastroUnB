@@ -58,7 +58,7 @@ public class MenuProfessor {
 					JOptionPane.showMessageDialog(null, p.toString());
 					break;
 				}else {
-					JOptionPane.showMessageDialog(null, "Matricula não encontrado.");
+					JOptionPane.showMessageDialog(null, "MatriculaFUB incorreta ou não existe.");
 					break;
 				}
 				
@@ -81,6 +81,10 @@ public class MenuProfessor {
 				}
 
 			default:
+				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n"
+						+ "Tente novamente!");
+				opcao = -1;
+
 				break;
 			}
 		} while (opcao != 0);

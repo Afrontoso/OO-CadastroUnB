@@ -54,8 +54,11 @@ public class MenuAluno {
 			case 2:
 				String matricula = lerMatricula();
 				Aluno a = cadAluno.pesquisarAluno(matricula);
-				if (a != null)
+				if (a != null) {
 					JOptionPane.showMessageDialog(null, a.toString());
+				}else {
+					JOptionPane.showMessageDialog(null, "Matricula incorreta ou não existe.");
+				}
 				break;
 
 			case 3:
@@ -77,6 +80,10 @@ public class MenuAluno {
 				}
 
 			default:
+				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n"
+						+ "Tente novamente!");
+				opcao = -1;
+
 				break;
 			}
 		} while (opcao != 0);

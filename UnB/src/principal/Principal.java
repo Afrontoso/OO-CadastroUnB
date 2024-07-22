@@ -18,15 +18,14 @@ public class Principal {
 	public static void main(String[] args) {
 		cadAluno = new CadastroAluno();
 		cadProf = new CadastroProfessor();
+		cadDisciplina = new CadastroDisciplina();
 		
 		int opcao = 0; 
-		
 		do {
 			opcao = MenuPrincipal.menuOpcoes(); 
 			switch (opcao) {
 				case 1: 
 					MenuAluno.menuAluno(cadAluno); 
-				break;
 				case 2: 
 					MenuProfessor.menuProfessor(cadProf);
 				break;

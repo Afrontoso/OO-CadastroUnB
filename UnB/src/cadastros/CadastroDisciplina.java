@@ -7,7 +7,7 @@ public class CadastroDisciplina {
 	private Disciplina[] disciplinas; 
 	
 	
-	public CadastroDisciplina(int numDisciplinas, Disciplina[] disciplinas) {
+	public CadastroDisciplina() {
 		numDisciplinas = 0;
 		disciplinas = new Disciplina[0];
 	}
