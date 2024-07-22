@@ -1,0 +1,78 @@
+package cadastros;
+
+import app.Disciplina;
+
+public class CadastroDisciplina {
+	int numDisciplinas; 
+	private Disciplina[] disciplinas; 
+	
+	
+	public CadastroDisciplina() {
+		numDisciplinas = 0;
+		disciplinas = new Disciplina[0];
+	}
+
+	public int cadastrarDisciplina(Disciplina d) {
+		Disciplina[] temp = new Disciplina[numDisciplinas + 1];
+		for (int i=0; i < disciplinas.length; i++) {
+			temp[i] = disciplinas[i];
+		}
+		temp[temp.length -1] = d; 
+		disciplinas = temp;
+		numDisciplinas++; 
+		return numDisciplinas;
+	}
+
+	public Disciplina pesquisarDisciplina(String codigo) {
+		Disciplina resposta =  null;
+		for (int i=0; i < disciplinas.length; i++) {
+			Disciplina a = disciplinas[i];
+			String mat = a.getCodigo(); 
+			if (mat.equalsIgnoreCase(codigo)) {
+				return disciplinas[i];
+			}
+		}
+		return resposta;
+	}
+	
+	public boolean removerDisciplina(Disciplina d) {
+		Disciplina remover = null; 
+		if (d != null)
+			remover = pesquisarDisciplina(d.getCodigo());
+		
+		if (remover == null) {
+			return false;
+		} 
+		
+		Disciplina[] temp = new Disciplina[numDisciplinas - 1];
+		int j=0;
+		for (int i=0; i<numDisciplinas; i++) {
+			if (disciplinas[i] != remover) {
+				temp[j] = disciplinas[i];
+				j++;
+			} else {
+				disciplinas[i] = null;
+			}
+		}
+		disciplinas = temp; 
+		numDisciplinas--;
+		return true;
+	}
+	
+	public boolean atualizarDisciplina(String codigo, Disciplina d) {
+		int i;
+		for (i=0; i< 11; i++) {
+			if (disciplinas[i].getCodigo().equalsIgnoreCase(codigo)) {
+				break;
+			}
+		}
+		if (i > numDisciplinas) {
+			return false;
+		} else {
+			disciplinas[i] = d;
+		}
+		return true;
+	}
+
+
+}

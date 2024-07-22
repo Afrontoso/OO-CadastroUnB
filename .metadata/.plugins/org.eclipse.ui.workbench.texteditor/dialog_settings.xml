@@ -6,25 +6,45 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="getCodigo"/>
 		<list key="findhistory">
+			<item value="getMatricula"/>
+			<item value="Aluno"/>
+			<item value="alunos"/>
+			<item value="numAlunos"/>
+			<item value="Alunos"/>
+			<item value="Matricula"/>
+			<item value="matricula"/>
 			<item value="aluno"/>
+			<item value="CPF"/>
+			<item value="Email"/>
+			<item value="email"/>
+			<item value="departamento"/>
+			<item value="cpf"/>
 			<item value="lerCurso"/>
 			<item value="lerMatricula"/>
-			<item value="Aluno"/>
-			<item value="menu"/>
-			<item value="remover"/>
 		</list>
 		<list key="replacehistory">
+			<item value="getCodigo"/>
+			<item value="Disciplinas"/>
+			<item value="disciplinas"/>
+			<item value="numDisciplinas"/>
+			<item value="Codigo"/>
+			<item value="codigo"/>
+			<item value="disciplina"/>
+			<item value="Departamento"/>
+			<item value="departamento"/>
+			<item value="matriculaFUB"/>
+			<item value="numProfessores"/>
+			<item value="professor"/>
 			<item value="lerAreaFormacao"/>
 			<item value="lerMatriculaFUB"/>
-			<item value="professor"/>
 			<item value="Professor"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="872"/>
-		<item key="DIALOG_Y_ORIGIN" value="192"/>
+		<item key="DIALOG_X_ORIGIN" value="675"/>
+		<item key="DIALOG_Y_ORIGIN" value="337"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

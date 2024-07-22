@@ -4,4 +4,6 @@
     <fullyQualifiedTypeName name="cadastros.CadastroProfessor"/>
     <fullyQualifiedTypeName name="app.Professor"/>
     <fullyQualifiedTypeName name="view.MenuProfessor"/>
+    <fullyQualifiedTypeName name="view.MenuDisciplina"/>
+    <fullyQualifiedTypeName name="cadastros.CadastroDisciplina"/>
 </qualifiedTypeNameHistroy>
