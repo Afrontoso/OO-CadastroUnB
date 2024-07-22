@@ -64,7 +64,7 @@ public class CadastroProfessor {
 	
 	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
 		int i;
-		for (i = 0; i< 11; i++) {
+		for (i = 0; i< professores.length; i++) {
 			if (professores[i].getMatriculaFUB().equalsIgnoreCase(matriculaFUB)) {
 				break;
 			}

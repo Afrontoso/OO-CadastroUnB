@@ -60,7 +60,7 @@ public class CadastroAluno {
 	
 	public boolean atualizarAluno(String matricula, Aluno a) {
 		int i;
-		for (i=0; i< 11; i++) {
+		for (i=0; i< alunos.length; i++) {
 			if (alunos[i].getMatricula().equalsIgnoreCase(matricula)) {
 				break;
 			}
