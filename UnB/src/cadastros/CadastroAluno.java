@@ -1,75 +1,53 @@
 package cadastros;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import app.Aluno;
 
 public class CadastroAluno {
 	int numAlunos; 
-	private Aluno[] alunos; 
+	private List<Aluno> alunos;
 	
 	public CadastroAluno() {
 		numAlunos = 0;
-		alunos = new Aluno[0];
+		alunos = new ArrayList<Aluno>();
+		
 	}
 	
 	public int cadastrarAluno(Aluno a) {
-		Aluno[] temp = new Aluno[numAlunos + 1];
-		for (int i=0; i < alunos.length; i++) {
-			temp[i] = alunos[i];
+		boolean cadastrou = alunos.add(a);//adiciona um elementro na lista e retorna um booleano se add
+		if (cadastrou) {
+			numAlunos = alunos.size();//mostra o tamanho da lista
 		}
-		temp[temp.length -1] = a; 
-		alunos = temp;
-		numAlunos++; 
 		return numAlunos;
 	}
 	
 	public Aluno pesquisarAluno(String matriculaAluno) {
-		Aluno resposta =  null;
-		for (int i=0; i < alunos.length; i++) {
-			Aluno a = alunos[i];
-			String mat = a.getMatricula(); 
-			if (mat.equalsIgnoreCase(matriculaAluno)) {
-				return alunos[i];
+		for (Aluno a: alunos) {
+			if (a.getMatricula().equalsIgnoreCase(matriculaAluno)) {//dentro do loop pega as matricula dos alunos e compara como a matricula digitada ignortando a caixa alta
+				return a;//retorna o aluno que for igual
 			}
 		}
-		return resposta;
+		return null;//retorna nulo ser não achar
 	}
 	
 	public boolean removerAluno(Aluno a) {
-		Aluno remover = null; 
-		if (a != null)
-			remover = pesquisarAluno(a.getMatricula());
-		
-		if (remover == null) {
-			return false;
-		} 
-		
-		Aluno[] temp = new Aluno[numAlunos - 1];
-		int j=0;
-		for (int i=0; i<numAlunos; i++) {
-			if (alunos[i] != remover) {
-				temp[j] = alunos[i];
-				j++;
-			} else {
-				alunos[i] = null;
-			}
+		boolean removeu = false; 
+		if (alunos.contains(a)) {//ve se contem o objeto na lista
+			removeu = alunos.remove(a);//remove o aluno com aquela matricula
 		}
-		alunos = temp; 
-		numAlunos--;
-		return true;
+		return removeu;
+	
 	}
 	
 	public boolean atualizarAluno(String matricula, Aluno a) {
-		int i;
-		for (i=0; i< alunos.length; i++) {
-			if (alunos[i].getMatricula().equalsIgnoreCase(matricula)) {
-				break;
-			}
+		boolean resposta = false;
+		Aluno remover = pesquisarAluno(matricula);
+		if(remover != null) {
+			alunos.remove(remover);//remove o elemento que quer se atualizar da lista
+			resposta = alunos.add(a);// e adiciona o elemento atualizado na lista
 		}
-		if (i > numAlunos) {
-			return false;
-		} else {
-			alunos[i] = a;
-		}
-		return true;
+		return resposta;
 	}
 }
