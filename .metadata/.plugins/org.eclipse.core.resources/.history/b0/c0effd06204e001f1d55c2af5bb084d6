@@ -1,0 +1,11 @@
+package view;
+
+import cadastros.CadastroTurma;
+
+public class MenuTurma {
+
+	public static void menuTurma(CadastroTurma cadTurma) {
+		
+	}
+
+}

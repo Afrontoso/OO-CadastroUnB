@@ -1,0 +1,51 @@
+package cadastros;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import app.Item;
+
+public class Cadatros {
+	int numItem;
+	private List<Item> itens;
+
+	public CadastroItem() {
+		numItem = 0;
+		itens = new ArrayList<Item>();
+	}
+
+	public int cadastrarItem(Item a) {
+		boolean cadastrou = itens.add(a);
+		if (cadastrou) {
+			numItem = itens.size();
+		}
+		return numItem;
+	}
+
+	public Item pesquisarItem(String identificaItem) {
+		for (Item a : itens) {
+			if (a.getMatricula().equalsIgnoreCase(identificaItem)) {
+				return a;
+			}
+		}
+		return null;
+	}
+
+	public boolean removerItem(Item a) {
+		boolean removeu = false;
+		if (itens.contains(a)) {
+			removeu = itens.remove(a);
+		}
+		return removeu;
+	}
+
+	public boolean atualizarItem(String identifica, Item a) {
+		boolean resposta = false;
+		Item remover = pesquisarItem(identifica);
+		if (remover != null) {
+			itens.remove(remover);
+			resposta = itens.add(a);
+		}
+		return resposta;
+	}
+}

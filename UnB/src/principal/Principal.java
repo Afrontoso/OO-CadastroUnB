@@ -1,15 +1,9 @@
 package principal;
 import javax.swing.JOptionPane;
 
-import cadastros.CadastroAluno;
-import cadastros.CadastroDisciplina;
-import cadastros.CadastroProfessor;
-import cadastros.CadastroTurma;
-import view.MenuAluno;
-import view.MenuDisciplina;
-import view.MenuPrincipal;
-import view.MenuProfessor;
-import view.MenuTurma;
+import cadastros.*;
+import view.*;
+
 
 public class Principal {
 
@@ -36,7 +30,7 @@ public class Principal {
 					MenuDisciplina.menuDisciplina(cadDisciplina);
 				break;
 				case 4: 
-				MenuTurma.menuTurma(cadTurma);
+					MenuTurma.menuTurma(cadTurma);
 					//JOptionPane.showMessageDialog(null, "Cadastro de turmas a ser implementado");
 				break;
 				case 0: 
