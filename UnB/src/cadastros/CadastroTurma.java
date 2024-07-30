@@ -1,27 +1,47 @@
 package cadastros;
 
+import java.util.List;
+
 import app.Turma;
 
 public class CadastroTurma {
-
-	public void cadastrarTurma(Turma novaTurma) {
-		// TODO Auto-generated method stub
-		
+	int numTurmas;
+	private List<Turma> turmas;
+	
+	public int cadastrarTurma(Turma t) {
+		boolean cadastrou = turmas.add(t);
+		if (cadastrou) {
+			numTurmas = turmas.size();//mostra o tamanho da lista
+		}
+		return numTurmas;
 	}
 
 	public Turma pesquisarTurma(String codigo) {
-		// TODO Auto-generated method stub
+		for (Turma t: turmas) {
+			if (t.getCodigo().equalsIgnoreCase(codigo)) {//dentro do loop pega as matricula dos alunos e compara como a matricula digitada ignortando a caixa alta
+				return t;//retorna o aluno que for igual
+			}
+		}
 		return null;
 	}
-
-	public boolean atualizarTurma(String codigo, Turma novoCadastro) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public boolean removerTurma(Turma t) {
+		boolean removeu = false; 
+		if (turmas.contains(t)) {//ve se contem o objeto na lista
+			removeu = turmas.remove(t);//remove o aluno com aquela matricula
+		}
+		return removeu;
 	}
 
-	public boolean removerTurma(Turma remover) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean atualizarTurma(String codigo, Turma t) {
+		boolean resposta = false;
+		Turma remover = pesquisarTurma(codigo);
+		if(remover != null) {
+			turmas.remove(remover);//remove o elemento que quer se atualizar da lista
+			resposta = turmas.add(t);// e adiciona o elemento atualizado na lista
+		}
+		return resposta;
 	}
+
 
 }
