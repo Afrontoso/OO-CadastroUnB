@@ -1,78 +1,58 @@
 package cadastros;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.Disciplina;
 
 public class CadastroDisciplina {
-	int numDisciplinas; 
-	private Disciplina[] disciplinas; 
-	
-	
+	int numDisciplinas;
+	private List<Disciplina> disciplinas;
+
 	public CadastroDisciplina() {
 		numDisciplinas = 0;
-		disciplinas = new Disciplina[0];
+		disciplinas = new ArrayList<Disciplina>();
 	}
 
 	public int cadastrarDisciplina(Disciplina d) {
-		Disciplina[] temp = new Disciplina[numDisciplinas + 1];
-		for (int i=0; i < disciplinas.length; i++) {
-			temp[i] = disciplinas[i];
+		boolean cadastrou = disciplinas.add(d);// adiciona um elementro na lista e retorna um booleano se add
+		if (cadastrou) {
+			numDisciplinas = disciplinas.size();// mostra o tamanho da lista
 		}
-		temp[temp.length -1] = d; 
-		disciplinas = temp;
-		numDisciplinas++; 
 		return numDisciplinas;
 	}
 
 	public Disciplina pesquisarDisciplina(String codigo) {
-		Disciplina resposta =  null;
-		for (int i=0; i < disciplinas.length; i++) {
-			Disciplina a = disciplinas[i];
-			String mat = a.getCodigo(); 
-			if (mat.equalsIgnoreCase(codigo)) {
-				return disciplinas[i];
+		for (Disciplina p : disciplinas) {
+			if (p.getCodigo().equalsIgnoreCase(codigo)) {// dentro do loop pega as matricula dos disciplinas e compara
+																// como a matricula digitada ignortando a caixa alta
+				return p;// retorna o aluno que for igual
 			}
+		}
+		return null;// retorna nulo ser não achar
+	}
+
+	public boolean removerDisciplina(Disciplina d) {
+		boolean removeu = false;
+		if (disciplinas.contains(d)) {// ve se contem o objeto na lista
+			removeu = disciplinas.remove(d);// remove o aluno com aquela matricula
+		}
+		return removeu;
+
+	}
+
+	public boolean atualizarDisciplina(String codigo, Disciplina p) {
+		boolean resposta = false;
+		Disciplina remover = pesquisarDisciplina(codigo);
+		if (remover != null) {
+			disciplinas.remove(remover);// remove o elemento que quer se atualizar da lista
+			resposta = disciplinas.add(p);// e adiciona o elemento atualizado na lista
 		}
 		return resposta;
 	}
-	
-	public boolean removerDisciplina(Disciplina d) {
-		Disciplina remover = null; 
-		if (d != null)
-			remover = pesquisarDisciplina(d.getCodigo());
-		
-		if (remover == null) {
-			return false;
-		} 
-		
-		Disciplina[] temp = new Disciplina[numDisciplinas - 1];
-		int j=0;
-		for (int i=0; i<numDisciplinas; i++) {
-			if (disciplinas[i] != remover) {
-				temp[j] = disciplinas[i];
-				j++;
-			} else {
-				disciplinas[i] = null;
-			}
-		}
-		disciplinas = temp; 
-		numDisciplinas--;
-		return true;
-	}
-	
-	public boolean atualizarDisciplina(String codigo, Disciplina d) {
-		int i;
-		for (i=0; i< disciplinas.length; i++) {
-			if (disciplinas[i].getCodigo().equalsIgnoreCase(codigo)) {
-				break;
-			}
-		}
-		if (i > numDisciplinas) {
-			return false;
-		} else {
-			disciplinas[i] = d;
-		}
-		return true;
-	}
 
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
 
 }

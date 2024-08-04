@@ -1,9 +1,10 @@
 package principal;
+
 import javax.swing.JOptionPane;
 
 import cadastros.*;
+import model.exception.DmException;
 import view.*;
-
 
 public class Principal {
 
@@ -11,36 +12,38 @@ public class Principal {
 	static CadastroProfessor cadProf;
 	static CadastroDisciplina cadDisciplina;
 	static CadastroTurma cadTurma;
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws DmException {
+
 		cadAluno = new CadastroAluno();
 		cadProf = new CadastroProfessor();
 		cadDisciplina = new CadastroDisciplina();
-		
-		int opcao = 0; 
+
+		int opcao = 0;
 		do {
-			opcao = MenuPrincipal.menuOpcoes(); 
-			switch (opcao) {
-				case 1: 
-					MenuAluno.menuAluno(cadAluno); 
-				case 2: 
+				opcao = MenuPrincipal.menuOpcoes();
+				switch (opcao) {
+				case 1:
+					MenuAluno.menuAluno(cadAluno);
+				case 2:
 					MenuProfessor.menuProfessor(cadProf);
-				break;
-				case 3: 
+					break;
+				case 3:
 					MenuDisciplina.menuDisciplina(cadDisciplina);
-				break;
-				case 4: 
+					break;
+				case 4:
 					MenuTurma.menuTurma(cadTurma);
-					//JOptionPane.showMessageDialog(null, "Cadastro de turmas a ser implementado");
-				break;
-				case 0: 
-				break;
-				default: 
+					// JOptionPane.showMessageDialog(null, "Cadastro de turmas a ser implementado");
+					break;
+				case 0:
+					break;
+				default:
 					JOptionPane.showMessageDialog(null, "Opcao invalida");
 					opcao = -1;
-				break;
-			}
+					break;
+				}
 		} while (opcao != 0);
 		return;
+
 	}
 }

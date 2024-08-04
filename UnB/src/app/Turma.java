@@ -1,19 +1,36 @@
 package app;
 
+import java.util.ArrayList;
+import java.util.List;
+import cadastros.CadastroAluno;
+
 public class Turma {
-	String codigo, diaHora, semestre, qtdVagas;
+	String codigo, diaHora, semestre;
+	int qtdVagas;
 	
 	Professor professor;
 	Disciplina disciplina;
-	Aluno[] alunos;
+	private List<Aluno> alunos;
 	
-	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, String vagas,
-			Aluno alunos) {
+	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas) {
 		this.codigo = codigo;
 		this.diaHora = diaHora;
 		this.semestre = semestre;
-		this.qtdVagas = vagas;
+		this.qtdVagas = qtdVagas;
+		this.professor = professor;
+		this.disciplina = disciplina;
+		
+		this.alunos = new ArrayList<>();
+		
 	}
+	public boolean adicionarAluno(Aluno aluno) {
+        if (alunos.size() < qtdVagas) {
+            alunos.add(aluno);
+            return true;
+        }
+        return false;
+    }
+	
 
 	public final String getCodigo() {
 		return codigo;
@@ -27,7 +44,7 @@ public class Turma {
 		return semestre;
 	}
 
-	public final String getQtdVagas() {
+	public final int getQtdVagas() {
 		return qtdVagas;
 	}
 	
@@ -39,6 +56,11 @@ public class Turma {
 		//qtdVagas - vagasOculpadas;
 		return 0;
 	}
+	
+	public List<Aluno> getAlunos() {
+        return alunos;
+    }
+	
 	public String toString() {
 		StringBuilder resposta = new StringBuilder();
 		resposta.append(super.toString());

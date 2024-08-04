@@ -1,12 +1,20 @@
 package cadastros;
 
+import java.util.ArrayList;
 import java.util.List;
+import cadastros.CadastroAluno;
 
 import app.Turma;
 
 public class CadastroTurma {
 	int numTurmas;
 	private List<Turma> turmas;
+	
+	public CadastroTurma() {
+		numTurmas = 0;
+		turmas = new ArrayList<Turma>();
+		
+	}
 	
 	public int cadastrarTurma(Turma t) {
 		boolean cadastrou = turmas.add(t);

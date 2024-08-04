@@ -1,80 +1,56 @@
 package cadastros;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.Professor;
 
 public class CadastroProfessor {
 	int numProfessores;
-	private Professor[] professores;
+	private List<Professor> professores;
 
 	// contrutor iniciando uma array de professor
 	public CadastroProfessor() {
 		numProfessores = 0;
-		professores = new Professor[0];
+		professores = new ArrayList<Professor>();
 	}
 
 	public int cadastrarProfessor(Professor p) {
-		Professor[] temp = new Professor[numProfessores + 1];
-		// Copia do array Professor para a referencia temp
-		for (int i = 0; i < professores.length; i++) {
-			temp[i] = professores[i];
+		boolean cadastrou = professores.add(p);
+		if (cadastrou) {
+			numProfessores = professores.size();
 		}
-		// acrescentar professor cadastrado no array temp
-		temp[temp.length - 1] = p;
-		// passar o array temporario para o array professores
-		professores = temp;
-		numProfessores++;
 		return numProfessores;
 	}
 
 	public Professor pesquisarProfessor(String matriculaFUB) {
-		Professor pesquisa = null;
-		for (int i = 0; i < professores.length; i++) {
-			Professor p = professores[i];
-			String matFUB = p.getMatriculaFUB();
-			if (matFUB.equalsIgnoreCase(matriculaFUB)) {
-				return professores[i];
+		for (Professor p : professores) {
+			if (p.getMatriculaFUB().equalsIgnoreCase(matriculaFUB)) {
+				return p;
 			}
 		}
-		return pesquisa;
+		return null;
 	}
 
 	public boolean removerProfessor(Professor p) {
-		Professor remover = null;
-		Professor[] temp = new Professor[numProfessores - 1];
-
-		if (p != null) {
-			remover = pesquisarProfessor(p.getMatriculaFUB());
-
-			int j = 0;
-			for (int i = 0; i < numProfessores; i++) {
-				if (professores[i].getMatriculaFUB() != remover.getMatriculaFUB()) {
-					temp[j] = professores[i];
-					j++;
-				} else {
-					professores[i] = null;
-				}
-			}
-			professores = temp;
-			numProfessores--;
-			return true;
+		boolean removeu = false; 
+		if (professores.contains(p)) {
+			removeu = professores.remove(p);
 		}
+		return removeu;
+	}
 
-		return false;
+	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
+		boolean resposta = false;
+		Professor remover = pesquisarProfessor(matriculaFUB);
+		if(remover != null) {
+			professores.remove(remover);//remove o elemento que quer se atualizar da lista
+			resposta = professores.add(p);// e adiciona o elemento atualizado na lista
+		}
+		return resposta;
 	}
 	
-	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
-		int i;
-		for (i = 0; i< professores.length; i++) {
-			if (professores[i].getMatriculaFUB().equalsIgnoreCase(matriculaFUB)) {
-				break;
-			}
-		}
-		if (i > numProfessores) {
-			return false;
-		} else {
-			professores[i] = p;
-		}
-		return true;	
-		
-	}
+	public List<Professor> getProfessores() {
+        return professores;
+    }
 }

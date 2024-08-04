@@ -12,20 +12,19 @@ public class CadastroAluno {
 	public CadastroAluno() {
 		numAlunos = 0;
 		alunos = new ArrayList<Aluno>();
-		
 	}
 	
 	public int cadastrarAluno(Aluno a) {
-		boolean cadastrou = alunos.add(a);//adiciona um elementro na lista e retorna um booleano se add
-		if (cadastrou) {
-			numAlunos = alunos.size();//mostra o tamanho da lista
-		}
-		return numAlunos;
+			boolean cadastrou = alunos.add(a);//adiciona um elementro na lista e retorna um booleano se add
+			if (cadastrou) {
+				numAlunos = alunos.size();//mostra o tamanho da lista
+			}
+			return numAlunos;
 	}
 	
-	public Aluno pesquisarAluno(String matriculaAluno) {
+	public Aluno pesquisarAluno(String matricula) {
 		for (Aluno a: alunos) {
-			if (a.getMatricula().equalsIgnoreCase(matriculaAluno)) {//dentro do loop pega as matricula dos alunos e compara como a matricula digitada ignortando a caixa alta
+			if (a.getMatricula().equalsIgnoreCase(matricula)) {//dentro do loop pega as matricula dos alunos e compara como a matricula digitada ignortando a caixa alta
 				return a;//retorna o aluno que for igual
 			}
 		}
@@ -50,4 +49,10 @@ public class CadastroAluno {
 		}
 		return resposta;
 	}
+	
+	public List<Aluno> getAlunos() {
+        return alunos;
+    }
+	
+	
 }
