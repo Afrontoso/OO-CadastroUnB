@@ -41,12 +41,12 @@ public class CadastroDisciplina {
 
 	}
 
-	public boolean atualizarDisciplina(String codigo, Disciplina p) {
+	public boolean atualizarDisciplina(String codigo, Disciplina d) {
 		boolean resposta = false;
 		Disciplina remover = pesquisarDisciplina(codigo);
 		if (remover != null) {
 			disciplinas.remove(remover);// remove o elemento que quer se atualizar da lista
-			resposta = disciplinas.add(p);// e adiciona o elemento atualizado na lista
+			resposta = disciplinas.add(d);// e adiciona o elemento atualizado na lista
 		}
 		return resposta;
 	}

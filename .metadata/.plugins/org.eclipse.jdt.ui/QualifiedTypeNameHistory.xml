@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="cadastros.CadastroAluno"/>
     <fullyQualifiedTypeName name="cadastros.CadastroProfessor"/>
-    <fullyQualifiedTypeName name="app.Professor"/>
     <fullyQualifiedTypeName name="view.MenuProfessor"/>
     <fullyQualifiedTypeName name="view.MenuDisciplina"/>
     <fullyQualifiedTypeName name="cadastros.CadastroDisciplina"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="model.exception.DmException"/>
+    <fullyQualifiedTypeName name="app.Aluno"/>
+    <fullyQualifiedTypeName name="app.Professor"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="cadastros.CadastroTurma"/>
+    <fullyQualifiedTypeName name="app.Disciplina"/>
+    <fullyQualifiedTypeName name="cadastros.CadastroAluno"/>
 </qualifiedTypeNameHistroy>

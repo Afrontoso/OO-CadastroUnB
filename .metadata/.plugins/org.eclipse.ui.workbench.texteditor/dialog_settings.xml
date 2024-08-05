@@ -6,40 +6,40 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="getCodigo"/>
+		<item key="selection" value="codigo"/>
 		<list key="findhistory">
-			<item value="getMatricula"/>
-			<item value="Aluno"/>
+			<item value="matriculaFUB"/>
+			<item value="c"/>
+			<item value="MatriculaFUB"/>
+			<item value="professores"/>
+			<item value="Professor"/>
+			<item value="Professores"/>
 			<item value="alunos"/>
+			<item value="Matricula"/>
+			<item value="Aluno"/>
+			<item value="getMatricula"/>
 			<item value="numAlunos"/>
 			<item value="Alunos"/>
-			<item value="Matricula"/>
 			<item value="matricula"/>
 			<item value="aluno"/>
 			<item value="CPF"/>
-			<item value="Email"/>
-			<item value="email"/>
-			<item value="departamento"/>
-			<item value="cpf"/>
-			<item value="lerCurso"/>
-			<item value="lerMatricula"/>
 		</list>
 		<list key="replacehistory">
-			<item value="getCodigo"/>
-			<item value="Disciplinas"/>
-			<item value="disciplinas"/>
-			<item value="numDisciplinas"/>
-			<item value="Codigo"/>
 			<item value="codigo"/>
+			<item value="Codigo"/>
+			<item value="disciplinas"/>
+			<item value="Disciplina"/>
+			<item value="Disciplinas"/>
+			<item value="professores"/>
+			<item value="MatriculaFUB"/>
+			<item value="Professor"/>
+			<item value="getCodigo"/>
+			<item value="numDisciplinas"/>
 			<item value="disciplina"/>
 			<item value="Departamento"/>
 			<item value="departamento"/>
 			<item value="matriculaFUB"/>
 			<item value="numProfessores"/>
-			<item value="professor"/>
-			<item value="lerAreaFormacao"/>
-			<item value="lerMatriculaFUB"/>
-			<item value="Professor"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

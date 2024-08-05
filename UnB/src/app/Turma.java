@@ -2,7 +2,6 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import cadastros.CadastroAluno;
 
 public class Turma {
 	String codigo, diaHora, semestre;
@@ -12,7 +11,7 @@ public class Turma {
 	Disciplina disciplina;
 	private List<Aluno> alunos;
 	
-	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas) {
+	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas, List<Aluno> alunos) {
 		this.codigo = codigo;
 		this.diaHora = diaHora;
 		this.semestre = semestre;

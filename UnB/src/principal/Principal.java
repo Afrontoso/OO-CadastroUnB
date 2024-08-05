@@ -18,13 +18,21 @@ public class Principal {
 		cadAluno = new CadastroAluno();
 		cadProf = new CadastroProfessor();
 		cadDisciplina = new CadastroDisciplina();
-
+		cadTurma = new CadastroTurma();
+		
+		CadastroProfessor cadastroProfessor = cadProf;
+		CadastroDisciplina cadastroDisciplina = cadDisciplina;
+		CadastroAluno cadastroAluno = cadAluno;
+        MenuTurma menuTurma = new MenuTurma(cadastroProfessor, cadastroDisciplina, cadastroAluno);
+        
 		int opcao = 0;
+		
 		do {
 				opcao = MenuPrincipal.menuOpcoes();
 				switch (opcao) {
 				case 1:
 					MenuAluno.menuAluno(cadAluno);
+					break;
 				case 2:
 					MenuProfessor.menuProfessor(cadProf);
 					break;

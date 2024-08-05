@@ -68,6 +68,8 @@ public class MenuDisciplina {
 					JOptionPane.showMessageDialog(null, "Disciplinas removido do cadastro");
 					System.gc();
 				}
+			case 0:
+				return;
 
 			default:
 				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n"

@@ -33,7 +33,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerAreaFormacao() {
-		return JOptionPane.showInputDialog("Informe o curso do professor: ");
+		return JOptionPane.showInputDialog("Informe a area de formacao do professor: ");
 	}
 
 	public static void menuProfessor(CadastroProfessor cadProfessor) {
@@ -79,6 +79,8 @@ public class MenuProfessor {
 					JOptionPane.showMessageDialog(null, "Professor removido do cadastro");
 					System.gc();
 				}
+			case 0:
+				return;
 
 			default:
 				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n"

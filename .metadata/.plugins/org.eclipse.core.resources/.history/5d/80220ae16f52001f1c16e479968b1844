@@ -1,0 +1,13 @@
+package model.exception;
+
+import javax.swing.JOptionPane;
+
+public class DmException extends Exception{
+	private static final long serialVersionUID = 1L;
+	
+	public DmException() {
+	}
+	public DmException(String msg) {
+		//JOptionPane.showMessageDialog(null, "Campo em branco. Informe novamente!");
+	}
+}

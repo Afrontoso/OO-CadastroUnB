@@ -54,7 +54,7 @@ public class MenuAluno {
 		int opcao = -1;
 		do {
 			try {
-				String strOpcao = JOptionPane.showInputDialog(txt,JOptionPane.QUESTION_MESSAGE);
+				String strOpcao = JOptionPane.showInputDialog(txt);
 				opcao = Integer.parseInt(strOpcao);
 
 				switch (opcao) {
@@ -91,6 +91,11 @@ public class MenuAluno {
 						JOptionPane.showMessageDialog(null, "Aluno removido do cadastro");
 						System.gc();
 					}
+				case 5:
+					JOptionPane.showInputDialog("Lista de Alunos Matriculados\n" + cadAluno.getAlunos());
+					break;
+				case 0:
+					return;
 
 				default:
 					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");

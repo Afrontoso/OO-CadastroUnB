@@ -1,0 +1,59 @@
+package cadastros;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import app.Professor;
+import app.Disciplina;
+
+public class CadastroProfessor {
+	int numProfessores;
+	private List<Professor> professores;
+
+	public CadastroProfessor() {
+		numProfessores = 0;
+		professores = new ArrayList<Professor>();
+	}
+
+	public int cadastrarProfessor(Professor a) {
+		boolean cadastrou = professores.add(a);// adiciona um elementro na lista e retorna um booleano se add
+		if (cadastrou) {
+			numProfessores = professores.size();// mostra o tamanho da lista
+		}
+		return numProfessores;
+	}
+
+	public Professor pesquisarProfessor(String matricula) {
+		for (Professor p : professores) {
+			if (p.getMatriculaFUB().equalsIgnoreCase(matricula)) {// dentro do loop pega as matricula dos professores e compara
+																// como a matricula digitada ignortando a caixa alta
+				return p;// retorna o aluno que for igual
+			}
+		}
+		return null;// retorna nulo ser não achar
+	}
+
+	public boolean removerProfessor(Professor p) {
+		boolean removeu = false;
+		if (professores.contains(p)) {// ve se contem o objeto na lista
+			removeu = professores.remove(p);// remove o aluno com aquela matricula
+		}
+		return removeu;
+
+	}
+
+	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
+		boolean resposta = false;
+		Professor remover = pesquisarProfessor(matriculaFUB);
+		if (remover != null) {
+			professores.remove(remover);// remove o elemento que quer se atualizar da lista
+			resposta = professores.add(p);// e adiciona o elemento atualizado na lista
+		}
+		return resposta;
+	}
+
+	public List<Professor> getProfessors() {
+		return professores;
+	}
+
+}

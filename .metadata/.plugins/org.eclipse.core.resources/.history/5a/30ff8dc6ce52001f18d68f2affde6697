@@ -1,0 +1,156 @@
+package view;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+import app.*;
+import cadastros.*;
+import model.exception.DmException;
+
+public class MenuTurma {
+
+	int numTurmas;
+	//private List<Turma> turma;
+
+	private static CadastroProfessor cadastroProfessor;
+	private static CadastroDisciplina cadastroDisciplina;
+	private static CadastroAluno cadastroAluno;
+	
+	public MenuTurma(CadastroProfessor cadastroProfessor, CadastroDisciplina cadastroDisciplina, CadastroAluno cadastroAluno) {
+        this.cadastroProfessor = cadastroProfessor;
+        this.cadastroDisciplina = cadastroDisciplina;
+        this.cadastroAluno = cadastroAluno;
+    }
+	
+	public static void setCadastros(CadastroProfessor cadProf, CadastroDisciplina cadDisc, CadastroAluno cadAluno) {
+		cadastroProfessor = cadProf;
+		cadastroDisciplina = cadDisc;
+		cadastroAluno = cadAluno;
+	}
+
+	public static Turma dadosNovaTurma() throws DmException {
+		String codigo = lerCodigo();
+		String diaHora = lerDiaHora();
+		String semestre = lerSemestre();
+		int qtdVagas = lerVagas();
+
+		Professor professor = lerProfessor();
+		Disciplina disciplina = lerDisciplina();
+		
+		List<Aluno> alunos = lerAlunos(qtdVagas);
+
+		return new Turma(codigo, professor, disciplina, diaHora, semestre, qtdVagas, alunos);
+	}
+
+	private static String lerCodigo() {
+		return JOptionPane.showInputDialog("Informe o código da turma: ");
+	}
+
+	private static String lerDiaHora() {
+		return JOptionPane.showInputDialog("Informe o dia e hora da turma: ");
+	}
+
+	private static String lerSemestre() {
+		return JOptionPane.showInputDialog("Informe o semestre da turma: ");
+	}
+
+	private static int lerVagas() {
+		String strVagas = JOptionPane.showInputDialog("Informe a quantidade de vagas da turma: ");
+		return Integer.parseInt(strVagas);
+	}
+
+	private static Disciplina lerDisciplina() {
+		String codigoDisciplina = JOptionPane.showInputDialog("Informe o código da disciplina:\n " + cadastroDisciplina.getDisciplinas());
+		Disciplina disciplina = cadastroDisciplina.pesquisarDisciplina(codigoDisciplina);
+		if (disciplina == null) {
+			JOptionPane.showMessageDialog(null, "Disciplina não encontrada.");
+			return lerDisciplina();
+		}
+		return disciplina;
+	}
+
+	
+	private static Professor lerProfessor() {
+		String matriculaFUB = JOptionPane.showInputDialog("Informe a matrícula do professor:\n " + cadastroProfessor.getProfessores());
+		Professor professor = cadastroProfessor.pesquisarProfessor(matriculaFUB);
+		if (professor == null) {
+			JOptionPane.showMessageDialog(null, "Professor não encontrado.");
+			return lerProfessor();
+		}
+		return professor;
+	}
+
+	private static List<Aluno> lerAlunos(int qtdVagas) {
+		List<Aluno> alunos = new ArrayList<>();
+		for (int i = 0; i < qtdVagas; i++) {
+			String matriculaAluno = JOptionPane
+					.showInputDialog("Informe a matrícula do aluno (ou deixe em branco para finalizar): " + cadastroAluno.getAlunos());
+			if (matriculaAluno.isEmpty()) {
+				break;
+			}
+			Aluno aluno = cadastroAluno.pesquisarAluno(matriculaAluno);
+			if (aluno == null) {
+				JOptionPane.showMessageDialog(null, "Aluno não encontrado.");
+				i--; // Repetir a iteração para substituir a entrada inválida.
+			} else {
+				alunos.add(aluno);
+			}
+		}
+		return alunos;
+	}
+
+	public static void menuTurma(CadastroTurma cadTurma) throws DmException {
+		String txt = "Informe a opção desejada \n" + "1 - Cadastrar turma\n" + "2 - Pesquisar turma\n"
+				+ "3 - Atualizar turma\n" + "4 - Remover turma\n" + "0 - Voltar para menu anterior";
+
+		int opcao = -1;
+		do {
+			String strOpcao = JOptionPane.showInputDialog(txt);
+			opcao = Integer.parseInt(strOpcao);
+
+			switch (opcao) {
+			case 1:
+				Turma novaTurma = dadosNovaTurma();
+				cadTurma.cadastrarTurma(novaTurma);
+				break;
+
+			case 2:
+				String codigo = lerCodigo();
+				Turma t = cadTurma.pesquisarTurma(codigo);
+				if (t != null) {
+					JOptionPane.showMessageDialog(null, t.toString());
+				} else {
+					JOptionPane.showMessageDialog(null, "Codigo incorreta ou não existe.");
+				}
+				break;
+
+			case 3:
+				codigo = lerCodigo();
+				Turma novoCadastro = dadosNovaTurma();
+				boolean atualizado = cadTurma.atualizarTurma(codigo, novoCadastro);
+				if (atualizado) {
+					JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
+				}
+				break;
+
+			case 4:
+				codigo = lerCodigo();
+				Turma remover = cadTurma.pesquisarTurma(codigo);
+				boolean removido = cadTurma.removerTurma(remover);
+				if (removido) {
+					JOptionPane.showMessageDialog(null, "Turma removida do cadastro");
+					System.gc();
+				}
+
+			default:
+				JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
+				opcao = -1;
+
+				break;
+			}
+		} while (opcao != 0);
+		return;
+	}
+
+}

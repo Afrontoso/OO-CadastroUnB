@@ -1,0 +1,74 @@
+package cadastros;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import app.Aluno;
+import app.Professor;
+
+public class CadastroProfessor {
+	int numProfessores;
+	private List<Professor> professores;
+
+	// contrutor iniciando uma array de professor
+	public CadastroProfessor() {
+		numProfessores = 0;
+		professores = new ArrayList<Professor>();
+	}
+
+	public int cadastrarProfessor(Professor p) {
+		boolean cadastrou = professores.add(p);
+		if (cadastrou) {
+			numProfessores = professores.size();
+		}
+		return numProfessores;
+	}
+
+	public Professor pesquisarProfessor(String matriculaFUB) {
+		for (Professor p: professores) {
+			if (p.getMatriculaFUB().equalsIgnoreCase(matriculaFUB)) {
+				return p;
+		}
+		return null;
+	}
+
+	public boolean removerProfessor(Professor p) {
+		Professor remover = null;
+		Professor[] temp = new Professor[numProfessores - 1];
+
+		if (p != null) {
+			remover = pesquisarProfessor(p.getMatriculaFUB());
+
+			int j = 0;
+			for (int i = 0; i < numProfessores; i++) {
+				if (professores[i].getMatriculaFUB() != remover.getMatriculaFUB()) {
+					temp[j] = professores[i];
+					j++;
+				} else {
+					professores[i] = null;
+				}
+			}
+			professores = temp;
+			numProfessores--;
+			return true;
+		}
+
+		return false;
+	}
+	
+	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
+		int i;
+		for (i = 0; i< professores.length; i++) {
+			if (professores[i].getMatriculaFUB().equalsIgnoreCase(matriculaFUB)) {
+				break;
+			}
+		}
+		if (i > numProfessores) {
+			return false;
+		} else {
+			professores[i] = p;
+		}
+		return true;	
+		
+	}
+}

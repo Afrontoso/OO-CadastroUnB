@@ -1,9 +1,0 @@
-package app;
-
-public class Disciplina{
-
-	public Disciplina(String nome, String codigo, String departamento) {
-		// TODO Auto-generated constructor stub
-	}
-
-}
