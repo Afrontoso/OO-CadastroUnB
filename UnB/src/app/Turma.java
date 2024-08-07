@@ -1,6 +1,5 @@
 package app;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
@@ -19,16 +18,25 @@ public class Turma {
 		this.professor = professor;
 		this.disciplina = disciplina;
 		
-		this.alunos = new ArrayList<>();
-		
+		this.alunos = alunos;
 	}
-	public boolean adicionarAluno(Aluno aluno) {
-        if (alunos.size() < qtdVagas) {
-            alunos.add(aluno);
-            return true;
-        }
-        return false;
-    }
+	
+//	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas) {
+//		this.codigo = codigo;
+//		this.diaHora = diaHora;
+//		this.semestre = semestre;
+//		this.qtdVagas = qtdVagas;
+//		this.professor = professor;
+//		this.disciplina = disciplina;
+//	}
+	
+//	public boolean adicionarAluno(Aluno aluno) {
+//        if (alunos.size() < qtdVagas) {
+//            alunos.add(aluno);
+//            return true;
+//        }
+//        return false;
+//    }
 	
 
 	public final String getCodigo() {
@@ -47,6 +55,10 @@ public class Turma {
 		return qtdVagas;
 	}
 	
+	public final List<Aluno> getAlunos() {
+		return alunos;
+	}
+	
 	protected void finalize() throws Throwable {
 		System.out.println("Destruindo objeto: " + this);
 	}
@@ -56,14 +68,29 @@ public class Turma {
 		return 0;
 	}
 	
-	public List<Aluno> getAlunos() {
-        return alunos;
-    }
 	
 	public String toString() {
 		StringBuilder resposta = new StringBuilder();
-		resposta.append(super.toString());
-		resposta.append("Codigo: " + codigo + '\n');
+		resposta.append(super.toString() + "\n");
+		resposta.append(disciplina.getDepartamento() + " - ");
+		resposta.append(disciplina.getNome() + " - ");
+		resposta.append(codigo);
+		resposta.append('(' + semestre  + " - " + diaHora + ")\n");
+		resposta.append(getAlunos());
+	
+		return resposta.toString();
+	}
+	
+	public String toString(Aluno alunos) {
+		StringBuilder resposta = new StringBuilder();
+		resposta.append(super.toString() + "\n");
+		resposta.append(disciplina.getDepartamento() + " - ");
+		resposta.append(disciplina.getNome() + " - ");
+		resposta.append(codigo);
+		resposta.append('(' + semestre  + " - " + diaHora + ")\n");
+		resposta.append(alunos.toStringAlt());
+			
+		
 		return resposta.toString();
 	}
 }

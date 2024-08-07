@@ -3,7 +3,9 @@ package principal;
 import javax.swing.JOptionPane;
 
 import cadastros.*;
-import model.exception.DmException;
+import model.exception.CampoEmBrancoException;
+import model.exception.DisciplinaNaoAtribuidaException;
+import model.exception.ProfessorNaoAtribuidoException;
 import view.*;
 
 public class Principal {
@@ -13,21 +15,23 @@ public class Principal {
 	static CadastroDisciplina cadDisciplina;
 	static CadastroTurma cadTurma;
 
-	public static void main(String[] args) throws DmException {
+	public static void main(String[] args) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
 
 		cadAluno = new CadastroAluno();
 		cadProf = new CadastroProfessor();
 		cadDisciplina = new CadastroDisciplina();
 		cadTurma = new CadastroTurma();
-		
+
 		CadastroProfessor cadastroProfessor = cadProf;
 		CadastroDisciplina cadastroDisciplina = cadDisciplina;
 		CadastroAluno cadastroAluno = cadAluno;
-        MenuTurma menuTurma = new MenuTurma(cadastroProfessor, cadastroDisciplina, cadastroAluno);
-        
+		MenuTurma.setCadastros(cadastroProfessor, cadastroDisciplina, cadastroAluno);
+
 		int opcao = 0;
-		
+
 		do {
+			try {
+
 				opcao = MenuPrincipal.menuOpcoes();
 				switch (opcao) {
 				case 1:
@@ -41,7 +45,6 @@ public class Principal {
 					break;
 				case 4:
 					MenuTurma.menuTurma(cadTurma);
-					// JOptionPane.showMessageDialog(null, "Cadastro de turmas a ser implementado");
 					break;
 				case 0:
 					break;
@@ -50,6 +53,11 @@ public class Principal {
 					opcao = -1;
 					break;
 				}
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Opcao invalida");
+				opcao = -1;
+			}
+
 		} while (opcao != 0);
 		return;
 

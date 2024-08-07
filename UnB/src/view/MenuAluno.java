@@ -4,50 +4,58 @@ import javax.swing.JOptionPane;
 
 import app.Aluno;
 import cadastros.CadastroAluno;
-import model.exception.DmException;
+import model.exception.CampoEmBrancoException;
 
 public class MenuAluno {
 
-	public static Aluno dadosNovoAluno() throws DmException {
+	public static Aluno dadosNovoAluno() throws CampoEmBrancoException {
 		JOptionPane.showMessageDialog(null, "Todos os campos são obrigatorios!");
 		String nome = lerNome();
-//		if (nome.isEmpty()) {
-//			throw new DmException("Campo nome em branco, digite novamente");
-//		}
 		String cpf = lerCPF();
 		String email = lerEmail();
 		String matricula = lerMatricula();
 		String curso = lerCurso();
-		if (nome.isEmpty() || cpf.isEmpty()|| email.isEmpty() || matricula.isEmpty() || curso.isEmpty())
-			throw new DmException("A um campo em branco");
 		return new Aluno(nome, cpf, email, matricula, curso);
 	}
-
-	private static String lerCurso() {
-		return JOptionPane.showInputDialog("Informe o curso do aluno: ");
-	}
-
-	private static String lerEmail() {
-		return JOptionPane.showInputDialog("Informe o email do aluno: ");
-	}
-
-	private static String lerCPF() {
-		return JOptionPane.showInputDialog("Informe o CPF do aluno: ");
-	}
-
-	private static String lerNome() throws DmException {
+	private static String lerNome() throws CampoEmBrancoException {
 		String nome = JOptionPane.showInputDialog("Informe o nome do aluno: ");
 		if (nome.isEmpty()) {
-			throw new DmException("Campo nome em branco, digite novamente");
+			throw new CampoEmBrancoException("NOME");
 		}
 		return nome;
 	}
-
-	private static String lerMatricula() {
-		return JOptionPane.showInputDialog("Informe a matricula do aluno: ");
+	private static String lerCPF() throws CampoEmBrancoException {
+		String CPF = JOptionPane.showInputDialog("Informe o CPF do aluno: ");
+		if (CPF.isEmpty()) {
+			throw new CampoEmBrancoException("CPF");
+		}
+		return CPF;
+	}
+	private static String lerEmail() throws CampoEmBrancoException {
+		String email = JOptionPane.showInputDialog("Informe o email do aluno: ");
+		if (email.isEmpty()) {
+			throw new CampoEmBrancoException("EMAIL");
+		}
+		return email;
 	}
 
-	public static void menuAluno(CadastroAluno cadAluno) throws DmException {
+	private static String lerMatricula() throws CampoEmBrancoException {
+		String matricula = JOptionPane.showInputDialog("Informe a matricula do aluno: ");
+		if (matricula.isEmpty()) {
+			throw new CampoEmBrancoException("MATRICULA");
+		}
+		return matricula;
+	}
+
+	private static String lerCurso() throws CampoEmBrancoException {
+		String curso = JOptionPane.showInputDialog("Informe o curso do aluno: ");
+		if (curso.isEmpty()) {
+			throw new CampoEmBrancoException("CURSO");
+		}
+		return curso;
+	}	
+
+	public static void menuAluno(CadastroAluno cadAluno) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar aluno\n" + "2 - Pesquisar aluno\n"
 				+ "3 - Atualizar aluno\n" + "4 - Remover aluno\n" + "0 - Voltar para menu anterior";
 
@@ -91,6 +99,7 @@ public class MenuAluno {
 						JOptionPane.showMessageDialog(null, "Aluno removido do cadastro");
 						System.gc();
 					}
+					break;
 				case 5:
 					JOptionPane.showInputDialog("Lista de Alunos Matriculados\n" + cadAluno.getAlunos());
 					break;
@@ -100,11 +109,12 @@ public class MenuAluno {
 				default:
 					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
 					opcao = -1;
-
 					break;
 				}
-			} catch (DmException e) {
-				JOptionPane.showMessageDialog(null, "Opcao em branco!");
+			} catch (CampoEmBrancoException e) {
+				JOptionPane.showMessageDialog(null, "Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Opção invalida");
 				opcao = -1;
 			}
 
