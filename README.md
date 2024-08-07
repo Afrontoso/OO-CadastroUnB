@@ -1,3 +1,13 @@
+UnB - Universidade de Brasilia
+FGA - Faculdade do Gama
+OO - Orientação por Objetos
+Prof. André Luiz Peron Martins Lanna
+Alunos: 
+Victor Leandro Rocha de Assis - 222021824
+Matheus
+
+# Trabalho Prático de Orientação por Objetos
+
 ## Introdução
 
 Este projeto faz parte da disciplina de Orientação a Objetos e tem como objetivo desenvolver um sistema de cadastro acadêmico, que gerencia informações sobre alunos, professores, disciplinas e turmas.
