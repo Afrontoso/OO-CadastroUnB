@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;model.exception.DmException.java&apos; to &apos;CampoEmBrancoException.java&apos;&#x0D;&#x0A;- Original project: &apos;UnB&apos;&#x0D;&#x0A;- Original element: &apos;model.exception.DmException.java&apos;&#x0D;&#x0A;- Renamed element: &apos;model.exception.CampoEmBrancoException.java&apos;" description="Rename compilation unit &apos;DmException.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;model.exception{DmException.java" name="CampoEmBrancoException.java" references="false" stamp="1722895822484" version="1.0"/>
+</session>

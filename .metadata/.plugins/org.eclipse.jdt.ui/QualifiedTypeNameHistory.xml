@@ -3,14 +3,21 @@
     <fullyQualifiedTypeName name="cadastros.CadastroProfessor"/>
     <fullyQualifiedTypeName name="view.MenuProfessor"/>
     <fullyQualifiedTypeName name="view.MenuDisciplina"/>
-    <fullyQualifiedTypeName name="cadastros.CadastroDisciplina"/>
     <fullyQualifiedTypeName name="java.text.ParseException"/>
     <fullyQualifiedTypeName name="model.exception.DmException"/>
     <fullyQualifiedTypeName name="app.Aluno"/>
     <fullyQualifiedTypeName name="app.Professor"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="cadastros.CadastroTurma"/>
     <fullyQualifiedTypeName name="app.Disciplina"/>
     <fullyQualifiedTypeName name="cadastros.CadastroAluno"/>
+    <fullyQualifiedTypeName name="view.MenuPrincipal"/>
+    <fullyQualifiedTypeName name="cadastros.CadastroDisciplina"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="model.exception.CampoEmBrancoException"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="model.exception.DisciplinaNaoAtribuidaException"/>
+    <fullyQualifiedTypeName name="model.exception.ProfessorNaoAtribuidoException"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
