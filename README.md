@@ -1,8 +1,13 @@
 UnB - Universidade de Brasilia
+
 FGA - Faculdade do Gama
+
 OO - Orientação por Objetos
+
 Prof. André Luiz Peron Martins Lanna
+
 Alunos: 
+
 Victor Leandro Rocha de Assis - 222021824
 Matheus
 
