@@ -1,17 +1,20 @@
-UnB - Universidade de Brasilia
+# Projeto de Cadastro Acadêmico
 
-FGA - Faculdade do Gama
+## Instituição
+UnB - Universidade de Brasília  
+FGA - Faculdade do Gama  
 
-OO - Orientação por Objetos
+## Disciplina
+OO - Orientação por Objetos  
 
-Prof. André Luiz Peron Martins Lanna
+## Professor
+Prof. André Luiz Peron Martins Lanna  
 
-Alunos: 
+## Alunos
+Victor Leandro Rocha de Assis - 222021824  
+Matheus Carvalho Nunes - 202045867  
 
-Victor Leandro Rocha de Assis - 222021824
-Matheus
-
-# Trabalho Prático de Orientação por Objetos
+---
 
 ## Introdução
 
