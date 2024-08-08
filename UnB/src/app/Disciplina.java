@@ -26,8 +26,7 @@ public class Disciplina {
 	}
 
 	public String toString() {
-		String resposta = super.toString() + '\n';
-		resposta += "NOME: " + nome + '\n';
+		String resposta = "NOME: " + nome + '\n';
 		resposta += "DEPARTAMENTO: " + departamento + '\n';
 		resposta += "CODIGO: " + codigo + '\n';
 		return resposta;

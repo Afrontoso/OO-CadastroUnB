@@ -53,7 +53,11 @@ public class MenuDisciplina {
 				switch (opcao) {
 				case 1:
 					Disciplina novaDisciplina = dadosNovoDisciplina();
-					cadDisciplina.cadastrarDisciplina(novaDisciplina);
+					boolean b = cadDisciplina.cadastrarDisciplina(novaDisciplina);
+					if (b) {
+						JOptionPane.showMessageDialog(null, "DISCIPLINA CADASTRADA\nNOME: " + novaDisciplina.getNome()
+								+ "\nDEPARTAMENTO: " + novaDisciplina.getDepartamento());
+					}
 					break;
 
 				case 2:
@@ -83,11 +87,14 @@ public class MenuDisciplina {
 						JOptionPane.showMessageDialog(null, "Disciplinas removido do cadastro");
 						System.gc();
 					}
+				case 5:
+					JOptionPane.showMessageDialog(null, "Lista de disciplinas cadastrada:\n" + cadDisciplina.toString());//Somente para verificar a lista
+					break;
 				case 0:
 					return;
 
 				default:
-					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
+					JOptionPane.showMessageDialog(null, "Nenhuma opção valida.\n" + "Tente novamente!");
 					opcao = -1;
 					break;
 				}

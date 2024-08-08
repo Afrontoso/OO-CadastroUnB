@@ -1,5 +1,6 @@
 package app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
@@ -18,27 +19,17 @@ public class Turma {
 		this.professor = professor;
 		this.disciplina = disciplina;
 		
-		this.alunos = alunos;
+		this.alunos = new ArrayList<Aluno>();
 	}
 	
-//	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas) {
-//		this.codigo = codigo;
-//		this.diaHora = diaHora;
-//		this.semestre = semestre;
-//		this.qtdVagas = qtdVagas;
-//		this.professor = professor;
-//		this.disciplina = disciplina;
-//	}
+	public boolean adicionarAluno(Aluno aluno) {
+        if (alunos.size() < qtdVagas) {
+            alunos.add(aluno);
+            return true;
+        }
+        return false;
+    }
 	
-//	public boolean adicionarAluno(Aluno aluno) {
-//        if (alunos.size() < qtdVagas) {
-//            alunos.add(aluno);
-//            return true;
-//        }
-//        return false;
-//    }
-	
-
 	public final String getCodigo() {
 		return codigo;
 	}
@@ -63,34 +54,34 @@ public class Turma {
 		System.out.println("Destruindo objeto: " + this);
 	}
 	
-	public int VagasLivre() {
-		//qtdVagas - vagasOculpadas;
-		return 0;
-	}
-	
 	
 	public String toString() {
 		StringBuilder resposta = new StringBuilder();
-		resposta.append(super.toString() + "\n");
-		resposta.append(disciplina.getDepartamento() + " - ");
-		resposta.append(disciplina.getNome() + " - ");
-		resposta.append(codigo);
+		resposta.append("DISCIPLINA: ");
+		resposta.append(disciplina.getNome() + " CODIGO: " + getCodigo());
+		resposta.append("\nPROFESSOR(A): ");
+		resposta.append(professor.getNome() + "\n");
 		resposta.append('(' + semestre  + " - " + diaHora + ")\n");
-		resposta.append(getAlunos());
-	
-		return resposta.toString();
-	}
-	
-	public String toString(Aluno alunos) {
-		StringBuilder resposta = new StringBuilder();
-		resposta.append(super.toString() + "\n");
-		resposta.append(disciplina.getDepartamento() + " - ");
-		resposta.append(disciplina.getNome() + " - ");
-		resposta.append(codigo);
-		resposta.append('(' + semestre  + " - " + diaHora + ")\n");
-		resposta.append(alunos.toStringAlt());
-			
+		
+		for(Aluno a : alunos) {
+			resposta.append(a);
+			resposta.append("NOME: " + a.getNome() + '\n');
+			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
+			System.out.println("To no loop");
+		}
 		
 		return resposta.toString();
 	}
+	
+//	public String toString(boolean listaPresenca) {
+//		StringBuilder resposta = new StringBuilder();
+//		for(Aluno a : alunos) {
+//			resposta.append(a);
+//			resposta.append("NOME: " + a.getNome() + '\n');
+//			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
+//			
+//		}
+//		return resposta.toString();
+//	}
+	
 }

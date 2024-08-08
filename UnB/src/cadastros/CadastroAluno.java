@@ -14,12 +14,16 @@ public class CadastroAluno {
 		alunos = new ArrayList<Aluno>();
 	}
 	
-	public int cadastrarAluno(Aluno a) {
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+	
+	public boolean cadastrarAluno(Aluno a) {
 			boolean cadastrou = alunos.add(a);//adiciona um elementro na lista e retorna um booleano se add
 			if (cadastrou) {
 				numAlunos = alunos.size();//mostra o tamanho da lista
 			}
-			return numAlunos;
+			return cadastrou;
 	}
 	
 	public Aluno pesquisarAluno(String matricula) {
@@ -50,9 +54,15 @@ public class CadastroAluno {
 		return resposta;
 	}
 	
-	public List<Aluno> getAlunos() {
-        return alunos;
-    }
+	
+	@Override
+	public String toString() {
+		String listaAlunos = null;
+		for(Aluno a : alunos) {
+			listaAlunos += a.toString() + "\n";
+		}
+		return listaAlunos;
+	}
 	
 	
 }

@@ -15,12 +15,16 @@ public class CadastroProfessor {
 		professores = new ArrayList<Professor>();
 	}
 
-	public int cadastrarProfessor(Professor p) {
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+
+	public boolean cadastrarProfessor(Professor p) {
 		boolean cadastrou = professores.add(p);
 		if (cadastrou) {
 			numProfessores = professores.size();
 		}
-		return numProfessores;
+		return cadastrou;
 	}
 
 	public Professor pesquisarProfessor(String matriculaFUB) {
@@ -33,7 +37,7 @@ public class CadastroProfessor {
 	}
 
 	public boolean removerProfessor(Professor p) {
-		boolean removeu = false; 
+		boolean removeu = false;
 		if (professores.contains(p)) {
 			removeu = professores.remove(p);
 		}
@@ -43,14 +47,20 @@ public class CadastroProfessor {
 	public boolean atualizarProfessor(String matriculaFUB, Professor p) {
 		boolean resposta = false;
 		Professor remover = pesquisarProfessor(matriculaFUB);
-		if(remover != null) {
-			professores.remove(remover);//remove o elemento que quer se atualizar da lista
+		if (remover != null) {
+			professores.remove(remover);// remove o elemento que quer se atualizar da lista
 			resposta = professores.add(p);// e adiciona o elemento atualizado na lista
 		}
 		return resposta;
 	}
 	
-	public List<Professor> getProfessores() {
-        return professores;
-    }
+	@Override
+	public String toString() {
+		String listaProfessores = null;
+		for(Professor p : professores) {
+			listaProfessores += p.toString() + "\n";
+		}
+		return listaProfessores;
+	}
+
 }

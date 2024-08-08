@@ -17,6 +17,7 @@ public class MenuAluno {
 		String curso = lerCurso();
 		return new Aluno(nome, cpf, email, matricula, curso);
 	}
+
 	private static String lerNome() throws CampoEmBrancoException {
 		String nome = JOptionPane.showInputDialog("Informe o nome do aluno: ");
 		if (nome.isEmpty()) {
@@ -24,6 +25,7 @@ public class MenuAluno {
 		}
 		return nome;
 	}
+
 	private static String lerCPF() throws CampoEmBrancoException {
 		String CPF = JOptionPane.showInputDialog("Informe o CPF do aluno: ");
 		if (CPF.isEmpty()) {
@@ -31,6 +33,7 @@ public class MenuAluno {
 		}
 		return CPF;
 	}
+
 	private static String lerEmail() throws CampoEmBrancoException {
 		String email = JOptionPane.showInputDialog("Informe o email do aluno: ");
 		if (email.isEmpty()) {
@@ -53,7 +56,7 @@ public class MenuAluno {
 			throw new CampoEmBrancoException("CURSO");
 		}
 		return curso;
-	}	
+	}
 
 	public static void menuAluno(CadastroAluno cadAluno) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar aluno\n" + "2 - Pesquisar aluno\n"
@@ -68,7 +71,11 @@ public class MenuAluno {
 				switch (opcao) {
 				case 1:
 					Aluno novoAluno = dadosNovoAluno();
-					cadAluno.cadastrarAluno(novoAluno);
+					boolean b = cadAluno.cadastrarAluno(novoAluno);
+					if (b) {
+						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nALUNO: " + novoAluno.getNome()
+								+ "\nMATRICULA: " + novoAluno.getMatricula());
+					}
 					break;
 
 				case 2:
@@ -76,7 +83,6 @@ public class MenuAluno {
 					Aluno a = cadAluno.pesquisarAluno(matricula);
 					if (a != null) {
 						JOptionPane.showMessageDialog(null, a.toString());
-						System.out.println(a.toString());
 					} else {
 						JOptionPane.showMessageDialog(null, "Matricula incorreta ou não existe.");
 					}
@@ -101,20 +107,21 @@ public class MenuAluno {
 					}
 					break;
 				case 5:
-					JOptionPane.showInputDialog("Lista de Alunos Matriculados\n" + cadAluno.getAlunos());
+					JOptionPane.showMessageDialog(null, "Lista de Alunos Matriculados\n" + cadAluno.toString());//Somente para verificar a lista
 					break;
 				case 0:
 					return;
 
 				default:
-					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
+					JOptionPane.showMessageDialog(null, "Nenhuma opção valida.\n" + "Tente novamente!");
 					opcao = -1;
 					break;
 				}
 			} catch (CampoEmBrancoException e) {
-				JOptionPane.showMessageDialog(null, "Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
+				JOptionPane.showMessageDialog(null,
+						"Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente!");
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Opção invalida");
+				JOptionPane.showMessageDialog(null, "Opção inválida");
 				opcao = -1;
 			}
 

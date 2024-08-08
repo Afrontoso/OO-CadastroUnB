@@ -49,12 +49,12 @@ public class Principal {
 				case 0:
 					break;
 				default:
-					JOptionPane.showMessageDialog(null, "Opcao invalida");
+					JOptionPane.showMessageDialog(null, "Opção invalida");
 					opcao = -1;
 					break;
 				}
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Opcao invalida");
+				JOptionPane.showMessageDialog(null, "Opção invalida");
 				opcao = -1;
 			}
 

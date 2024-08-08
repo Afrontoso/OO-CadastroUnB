@@ -19,7 +19,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerNome() throws CampoEmBrancoException {
-		String nome = JOptionPane.showInputDialog("Informe o nome do professor: ");
+		String nome = JOptionPane.showInputDialog("Informe o nome do(a) professor(a): ");
 		if (nome.isEmpty()) {
 			throw new CampoEmBrancoException("NOME");
 		}
@@ -27,7 +27,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerCPF() throws CampoEmBrancoException {
-		String CPF = JOptionPane.showInputDialog("Informe o CPF do professor: ");
+		String CPF = JOptionPane.showInputDialog("Informe o CPF do(a) professor(a): ");
 		if (CPF.isEmpty()) {
 			throw new CampoEmBrancoException("CPF");
 		}
@@ -35,7 +35,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerEmail() throws CampoEmBrancoException {
-		String email = JOptionPane.showInputDialog("Informe o email do professor: ");
+		String email = JOptionPane.showInputDialog("Informe o email do(a) professor(a): ");
 		if (email.isEmpty()) {
 			throw new CampoEmBrancoException("EMAIL");
 		}
@@ -43,7 +43,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerMatriculaFUB() throws CampoEmBrancoException {
-		String matricula = JOptionPane.showInputDialog("Informe a matricula do professor: ");
+		String matricula = JOptionPane.showInputDialog("Informe a matricula(a) do professor(a): ");
 		if (matricula.isEmpty()) {
 			throw new CampoEmBrancoException("MATRICULAFUB");
 		}
@@ -51,16 +51,16 @@ public class MenuProfessor {
 	}
 
 	private static String lerAreaFormacao() throws CampoEmBrancoException {
-		String curso = JOptionPane.showInputDialog("Informe o curso do professor: ");
+		String curso = JOptionPane.showInputDialog("Informe o curso do(a) professor(a): ");
 		if (curso.isEmpty()) {
-			throw new CampoEmBrancoException("AREA DE FORMAÇãO");
+			throw new CampoEmBrancoException("ÁREA DE FORMAÇãO");
 		}
 		return curso;
 	}
 
 	public static void menuProfessor(CadastroProfessor cadProfessor) throws CampoEmBrancoException {
-		String txt = "Informe a opção desejada \n" + "1 - Cadastrar professor\n" + "2 - Pesquisar professor\n"
-				+ "3 - Atualizar professor\n" + "4 - Remover professor\n" + "0 - Voltar para menu anterior";
+		String txt = "Informe a opção desejada \n" + "1 - Cadastrar professor(a)\n" + "2 - Pesquisar professor(a)\n"
+				+ "3 - Atualizar professor(a)\n" + "4 - Remover professor(a)\n" + "0 - Voltar para menu anterior";
 
 		int opcao = -1;
 		do {
@@ -71,7 +71,12 @@ public class MenuProfessor {
 				switch (opcao) {
 				case 1:
 					Professor novoProfessor = dadosNovoProfessor();
-					cadProfessor.cadastrarProfessor(novoProfessor);
+					
+					boolean b = cadProfessor.cadastrarProfessor(novoProfessor);
+					if (b) {
+						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nPROFESSOR(A): " + novoProfessor.getNome()
+								+ "\nMATRICULAFUB: " + novoProfessor.getMatriculaFUB());
+					}
 					break;
 
 				case 2:
@@ -90,7 +95,7 @@ public class MenuProfessor {
 					Professor novoCadastro = dadosNovoProfessor();
 					boolean atualizado = cadProfessor.atualizarProfessor(matriculaFUB, novoCadastro);
 					if (atualizado) {
-						JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
+						JOptionPane.showMessageDialog(null, "Cadastro(a) atualizado.");
 					}
 					break;
 
@@ -99,14 +104,17 @@ public class MenuProfessor {
 					Professor remover = cadProfessor.pesquisarProfessor(matriculaFUB);
 					boolean removido = cadProfessor.removerProfessor(remover);
 					if (removido) {
-						JOptionPane.showMessageDialog(null, "Professor removido do cadastro");
+						JOptionPane.showMessageDialog(null, "Professor(a) removido(a) do cadastro");
 						System.gc();
 					}
+				case 5:
+					JOptionPane.showMessageDialog(null, "Lista de Alunos Matriculados\n" + cadProfessor.toString());//Somente para verificar a lista
+					break;
 				case 0:
 					return;
 
 				default:
-					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
+					JOptionPane.showMessageDialog(null, "Nenhuma opção valida.\n" + "Tente novamente!");
 					opcao = -1;
 
 					break;

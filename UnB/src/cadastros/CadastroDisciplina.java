@@ -13,13 +13,17 @@ public class CadastroDisciplina {
 		numDisciplinas = 0;
 		disciplinas = new ArrayList<Disciplina>();
 	}
+	
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
 
-	public int cadastrarDisciplina(Disciplina d) {
+	public boolean cadastrarDisciplina(Disciplina d) {
 		boolean cadastrou = disciplinas.add(d);// adiciona um elementro na lista e retorna um booleano se add
 		if (cadastrou) {
 			numDisciplinas = disciplinas.size();// mostra o tamanho da lista
 		}
-		return numDisciplinas;
+		return cadastrou;
 	}
 
 	public Disciplina pesquisarDisciplina(String codigo) {
@@ -50,9 +54,14 @@ public class CadastroDisciplina {
 		}
 		return resposta;
 	}
-
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
+	
+	@Override
+	public String toString() {
+		String listaDisciplinas = null;
+		for(Disciplina a : disciplinas) {
+			listaDisciplinas += a.toString() + "\n";
+		}
+		return listaDisciplinas;
 	}
 
 }

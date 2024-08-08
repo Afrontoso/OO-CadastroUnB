@@ -11,17 +11,21 @@ public class CadastroTurma {
 	private List<Turma> turmas;
 	
 	public CadastroTurma() {
-		numTurmas = 0;
-		turmas = new ArrayList<Turma>();
+		this.numTurmas = 0;
+		this.turmas = new ArrayList<Turma>();
 		
 	}
 	
-	public int cadastrarTurma(Turma t) {
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+	
+	public boolean cadastrarTurma(Turma t) {
 		boolean cadastrou = turmas.add(t);
 		if (cadastrou) {
 			numTurmas = turmas.size();//mostra o tamanho da lista
 		}
-		return numTurmas;
+		return cadastrou;
 	}
 
 	public Turma pesquisarTurma(String codigo) {
@@ -50,9 +54,14 @@ public class CadastroTurma {
 		}
 		return resposta;
 	}
-	
-	public List<Turma> getTurmas() {
-		return turmas;
+	@Override
+	public String toString() {
+		String listaTurmas = null;
+		for(Turma t : turmas) {
+			listaTurmas += t.toString() + "\n";
+		}
+		return listaTurmas;
 	}
+	
 
 }

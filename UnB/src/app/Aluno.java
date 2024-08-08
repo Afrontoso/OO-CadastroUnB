@@ -10,7 +10,7 @@ public class Aluno extends PessoaFisica {
 		this.curso = curso;
 	}
 
-	public final String getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
@@ -28,10 +28,5 @@ public class Aluno extends PessoaFisica {
 		resposta += "CURSO: " + curso + '\n';
 		return resposta;
 	}
-	public String toStringAlt() {
-		String resposta = "NOME: " + getNome() + '\n';
-		resposta += "MATRICULA: " + matricula + '\n';
-		return resposta;
-	}
-	
+
 }
