@@ -1,3 +1,21 @@
+# Projeto de Cadastro Acadêmico
+
+## Instituição
+UnB - Universidade de Brasília  
+FGA - Faculdade do Gama  
+
+## Disciplina
+OO - Orientação por Objetos  
+
+## Professor
+Prof. André Luiz Peron Martins Lanna  
+
+## Alunos
+Victor Leandro Rocha de Assis - 222021824  
+Matheus Carvalho Nunes - 202045867  
+
+---
+
 ## Introdução
 
 Este projeto faz parte da disciplina de Orientação a Objetos e tem como objetivo desenvolver um sistema de cadastro acadêmico, que gerencia informações sobre alunos, professores, disciplinas e turmas.
