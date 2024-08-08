@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="model.exception.DmException"/>
     <fullyQualifiedTypeName name="app.Aluno"/>
     <fullyQualifiedTypeName name="app.Professor"/>
-    <fullyQualifiedTypeName name="cadastros.CadastroTurma"/>
     <fullyQualifiedTypeName name="app.Disciplina"/>
     <fullyQualifiedTypeName name="cadastros.CadastroAluno"/>
     <fullyQualifiedTypeName name="view.MenuPrincipal"/>
@@ -20,4 +19,7 @@
     <fullyQualifiedTypeName name="model.exception.DisciplinaNaoAtribuidaException"/>
     <fullyQualifiedTypeName name="model.exception.ProfessorNaoAtribuidoException"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="cadastros.CadastroTurma"/>
+    <fullyQualifiedTypeName name="app.Turma"/>
 </qualifiedTypeNameHistroy>
