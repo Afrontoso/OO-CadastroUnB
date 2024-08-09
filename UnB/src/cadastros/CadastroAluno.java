@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import app.Aluno;
 
-public class CadastroAluno {
+public class CadastroAluno extends Cadastro{
 	int numAlunos; 
 	private List<Aluno> alunos;
 	
