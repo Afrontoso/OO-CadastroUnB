@@ -46,6 +46,14 @@ public class Turma {
 		return qtdVagas;
 	}
 	
+	public Professor getProfessor() {
+		return professor;
+	}
+	
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+	
 	public final List<Aluno> getAlunos() {
 		return alunos;
 	}
@@ -72,6 +80,8 @@ public class Turma {
 		
 		return resposta.toString();
 	}
+
+
 	
 //	public String toString(boolean listaPresenca) {
 //		StringBuilder resposta = new StringBuilder();

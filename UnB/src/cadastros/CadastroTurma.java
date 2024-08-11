@@ -54,14 +54,13 @@ public class CadastroTurma {
 		}
 		return resposta;
 	}
+	
 	@Override
 	public String toString() {
-		String listaTurmas = null;
+		String listaTurmas = "\n";
 		for(Turma t : turmas) {
 			listaTurmas += t.toString() + "\n";
 		}
 		return listaTurmas;
 	}
-	
-
 }

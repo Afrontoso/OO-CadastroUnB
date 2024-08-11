@@ -14,10 +14,12 @@ public class MenuTurma {
 
 	// int numTurmas;
 //	private List<Turma> turma;
+	private static List<Turma> listaTurmas = new ArrayList<>();
 
 	private static CadastroProfessor cadastroProfessor;
 	private static CadastroDisciplina cadastroDisciplina;
 	private static CadastroAluno cadastroAluno;
+	
 
 	public static void setCadastros(CadastroProfessor cadProf, CadastroDisciplina cadDisc, CadastroAluno cadAluno) {
 		cadastroProfessor = cadProf;
@@ -115,6 +117,39 @@ public class MenuTurma {
 		}
 		return alunos;
 	}
+	
+	public static void imprimirListaPresenca() {
+		String codigoTurma = JOptionPane.showInputDialog("Digite o código da turma:");
+        Turma turmaEncontrada = null;
+        
+        // Procurando a turma na lista
+        for (Turma turma : listaTurmas) {
+            if (turma.getCodigo().equals(codigoTurma)) {
+                turmaEncontrada = turma;
+                break;
+            }
+        }
+
+        if (turmaEncontrada != null) {
+            StringBuilder listaPresenca = new StringBuilder();
+            listaPresenca.append("Disciplina: ").append(turmaEncontrada.getDisciplina().getNome()).append("\n");
+            listaPresenca.append("Professor: ").append(turmaEncontrada.getProfessor().getNome()).append("\n");
+            listaPresenca.append("Código da Turma: ").append(turmaEncontrada.getCodigo()).append("\n");
+            listaPresenca.append("Alunos:\n");
+
+            for (Aluno aluno : turmaEncontrada.getAlunos()) {
+                listaPresenca.append("Matrícula: ").append(aluno.getMatricula()).append(", Nome: ").append(aluno.getNome()).append("\n");
+            }
+
+            JOptionPane.showMessageDialog(null, listaPresenca.toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "Turma não encontrada!");
+        }
+	}
+
+	
+	
+	
 
 	public static void menuTurma(CadastroTurma cadTurma)
 			throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
@@ -131,6 +166,7 @@ public class MenuTurma {
 				switch (opcao) {
 				case 1:
 					Turma novaTurma = dadosNovaTurma();
+					listaTurmas.add(novaTurma);
 					boolean b = cadTurma.cadastrarTurma(novaTurma);
 					if (b) {
 						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nTURMA: " + novaTurma.getCodigo()
@@ -166,7 +202,9 @@ public class MenuTurma {
 						System.gc();
 					}
 				case 5:
-					JOptionPane.showMessageDialog(null, "Lista de Turmas cadastradas\n" + cadTurma.toString());
+					
+					//JOptionPane.showMessageDialog(null, "Lista de Turmas cadastradas\n" + cadTurma.toString());
+					imprimirListaPresenca();
 					break;
 					
 				case 0:

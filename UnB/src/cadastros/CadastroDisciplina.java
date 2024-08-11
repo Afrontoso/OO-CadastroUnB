@@ -57,7 +57,7 @@ public class CadastroDisciplina {
 	
 	@Override
 	public String toString() {
-		String listaDisciplinas = null;
+		String listaDisciplinas = "\n";
 		for(Disciplina a : disciplinas) {
 			listaDisciplinas += a.toString() + "\n";
 		}

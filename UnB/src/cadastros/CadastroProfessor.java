@@ -56,7 +56,7 @@ public class CadastroProfessor {
 	
 	@Override
 	public String toString() {
-		String listaProfessores = null;
+		String listaProfessores = "\n";
 		for(Professor p : professores) {
 			listaProfessores += p.toString() + "\n";
 		}
