@@ -35,15 +35,15 @@ public class MenuProfessor {
 	}
 
 	private static String lerEmail() throws CampoEmBrancoException {
-		String email = JOptionPane.showInputDialog("Informe o email do(a) professor(a): ");
+		String email = JOptionPane.showInputDialog("Informe o e-mail do(a) professor(a): ");
 		if (email.isEmpty()) {
-			throw new CampoEmBrancoException("EMAIL");
+			throw new CampoEmBrancoException("E-MAIL");
 		}
 		return email;
 	}
 
 	private static String lerMatriculaFUB() throws CampoEmBrancoException {
-		String matricula = JOptionPane.showInputDialog("Informe a matricula(a) do professor(a): ");
+		String matricula = JOptionPane.showInputDialog("Informe a matrículaFUB(a) do professor(a): ");
 		if (matricula.isEmpty()) {
 			throw new CampoEmBrancoException("MATRICULAFUB");
 		}
@@ -51,7 +51,7 @@ public class MenuProfessor {
 	}
 
 	private static String lerAreaFormacao() throws CampoEmBrancoException {
-		String curso = JOptionPane.showInputDialog("Informe o curso do(a) professor(a): ");
+		String curso = JOptionPane.showInputDialog("Informe a área de formação do(a) professor(a): ");
 		if (curso.isEmpty()) {
 			throw new CampoEmBrancoException("ÁREA DE FORMAÇãO");
 		}
@@ -60,7 +60,8 @@ public class MenuProfessor {
 
 	public static void menuProfessor(CadastroProfessor cadProfessor) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar professor(a)\n" + "2 - Pesquisar professor(a)\n"
-				+ "3 - Atualizar professor(a)\n" + "4 - Remover professor(a)\n" + "0 - Voltar para menu anterior";
+				+ "3 - Atualizar professor(a)\n" + "4 - Remover professor(a)\n"
+				+ "5 - Lista completa de professores matrículados\n" + "0 - Voltar para menu anterior";
 
 		int opcao = -1;
 		do {
@@ -71,11 +72,11 @@ public class MenuProfessor {
 				switch (opcao) {
 				case 1:
 					Professor novoProfessor = dadosNovoProfessor();
-					
+
 					boolean b = cadProfessor.cadastrarProfessor(novoProfessor);
 					if (b) {
-						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nPROFESSOR(A): " + novoProfessor.getNome()
-								+ "\nMATRICULAFUB: " + novoProfessor.getMatriculaFUB());
+						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nPROFESSOR(A): "
+								+ novoProfessor.getNome() + "\nMATRíCULAFUB: " + novoProfessor.getMatriculaFUB());
 					}
 					break;
 
@@ -86,7 +87,7 @@ public class MenuProfessor {
 						JOptionPane.showMessageDialog(null, p.toString());
 						break;
 					} else {
-						JOptionPane.showMessageDialog(null, "MatriculaFUB incorreta ou não existe.");
+						JOptionPane.showMessageDialog(null, "MatrículaFUB incorreta ou não existe.");
 						break;
 					}
 
@@ -95,7 +96,7 @@ public class MenuProfessor {
 					Professor novoCadastro = dadosNovoProfessor();
 					boolean atualizado = cadProfessor.atualizarProfessor(matriculaFUB, novoCadastro);
 					if (atualizado) {
-						JOptionPane.showMessageDialog(null, "Cadastro(a) atualizado.");
+						JOptionPane.showMessageDialog(null, "Cadastro atualizado.");
 					}
 					break;
 
@@ -108,7 +109,9 @@ public class MenuProfessor {
 						System.gc();
 					}
 				case 5:
-					JOptionPane.showMessageDialog(null, "Lista de Alunos Matriculados\n" + cadProfessor.toString());//Somente para verificar a lista
+					JOptionPane.showMessageDialog(null,
+							"Lista de Professores Matriculados\n" + cadProfessor.toString());// Somente para verificar a
+																								// lista
 					break;
 				case 0:
 					return;
@@ -120,7 +123,8 @@ public class MenuProfessor {
 					break;
 				}
 			} catch (CampoEmBrancoException e) {
-				JOptionPane.showMessageDialog(null, "Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
+				JOptionPane.showMessageDialog(null,
+						"Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
 			} catch (NumberFormatException e) {
 				JOptionPane.showMessageDialog(null, "Opção invalida");
 				opcao = -1;

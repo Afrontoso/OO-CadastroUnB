@@ -15,8 +15,8 @@ public class Principal {
 	static CadastroDisciplina cadDisciplina;
 	static CadastroTurma cadTurma;
 
-
-	public static void main(String[] args) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
+	public static void main(String[] args)
+			throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
 
 		cadAluno = new CadastroAluno();
 		cadProf = new CadastroProfessor();
@@ -46,7 +46,7 @@ public class Principal {
 					break;
 				case 4:
 					MenuTurma.menuTurma(cadTurma);
-					break;	
+					break;
 				case 0:
 					JOptionPane.showMessageDialog(null, "Fechando...");
 					break;
@@ -64,7 +64,5 @@ public class Principal {
 		return;
 
 	}
-	
-	
-	
+
 }

@@ -19,7 +19,7 @@ public class Aluno extends PessoaFisica {
 	}
 
 	protected void finalize() throws Throwable {
-		System.out.println("Destruindo objeto: " + this);
+		// System.out.println("Destruindo objeto: " + this);
 	}
 
 	public String toString() {

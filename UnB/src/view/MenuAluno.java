@@ -35,17 +35,17 @@ public class MenuAluno {
 	}
 
 	private static String lerEmail() throws CampoEmBrancoException {
-		String email = JOptionPane.showInputDialog("Informe o email do aluno: ");
+		String email = JOptionPane.showInputDialog("Informe o e-mail do aluno: ");
 		if (email.isEmpty()) {
-			throw new CampoEmBrancoException("EMAIL");
+			throw new CampoEmBrancoException("E-MAIL");
 		}
 		return email;
 	}
 
 	private static String lerMatricula() throws CampoEmBrancoException {
-		String matricula = JOptionPane.showInputDialog("Informe a matricula do aluno: ");
+		String matricula = JOptionPane.showInputDialog("Informe a matrícula do aluno: ");
 		if (matricula.isEmpty()) {
-			throw new CampoEmBrancoException("MATRICULA");
+			throw new CampoEmBrancoException("MATRÍCULA");
 		}
 		return matricula;
 	}
@@ -60,7 +60,8 @@ public class MenuAluno {
 
 	public static void menuAluno(CadastroAluno cadAluno) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar aluno\n" + "2 - Pesquisar aluno\n"
-				+ "3 - Atualizar aluno\n" + "4 - Remover aluno\n" + "0 - Voltar para menu anterior";
+				+ "3 - Atualizar aluno\n" + "4 - Remover aluno\n" + "5 - Lista de alunos matrículados completa\n"
+				+ "0 - Voltar para menu anterior";
 
 		int opcao = -1;
 		do {
@@ -73,8 +74,8 @@ public class MenuAluno {
 					Aluno novoAluno = dadosNovoAluno();
 					boolean b = cadAluno.cadastrarAluno(novoAluno);
 					if (b) {
-						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nALUNO: " + novoAluno.getNome()
-								+ "\nMATRICULA: " + novoAluno.getMatricula());
+						JOptionPane.showMessageDialog(null, "MATRÍCULA CONCLUIDA\nALUNO: " + novoAluno.getNome()
+								+ "\nMATRÍCULA: " + novoAluno.getMatricula());
 					}
 					break;
 
@@ -84,7 +85,7 @@ public class MenuAluno {
 					if (a != null) {
 						JOptionPane.showMessageDialog(null, a.toString());
 					} else {
-						JOptionPane.showMessageDialog(null, "Matricula incorreta ou não existe.");
+						JOptionPane.showMessageDialog(null, "Matrícula incorreta ou não existe.");
 					}
 					break;
 
@@ -107,7 +108,11 @@ public class MenuAluno {
 					}
 					break;
 				case 5:
-					JOptionPane.showMessageDialog(null, "Lista de Alunos Matriculados\n" + cadAluno.toString());//Somente para verificar a lista
+					JOptionPane.showMessageDialog(null, "Lista de Alunos Matrículados:\n" + cadAluno.toString());// Somente
+																													// para
+																													// verificar
+																													// a
+																													// lista
 					break;
 				case 0:
 					return;

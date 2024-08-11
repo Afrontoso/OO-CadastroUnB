@@ -22,13 +22,13 @@ public class Disciplina {
 	}
 
 	protected void finalize() throws Throwable {
-		System.out.println("Destruindo objeto: " + this);
+		// System.out.println("Destruindo objeto: " + this);
 	}
 
 	public String toString() {
 		String resposta = "NOME: " + nome + '\n';
 		resposta += "DEPARTAMENTO: " + departamento + '\n';
-		resposta += "CODIGO: " + codigo + '\n';
+		resposta += "CÓDIGO: " + codigo;
 		return resposta;
 	}
 

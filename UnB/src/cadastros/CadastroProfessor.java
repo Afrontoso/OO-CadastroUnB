@@ -5,7 +5,7 @@ import java.util.List;
 
 import app.Professor;
 
-public class CadastroProfessor extends Cadastro{
+public class CadastroProfessor extends Cadastro<Professor> {
 	int numProfessores;
 	private List<Professor> professores;
 
@@ -48,19 +48,18 @@ public class CadastroProfessor extends Cadastro{
 		boolean resposta = false;
 		Professor remover = pesquisarProfessor(matriculaFUB);
 		if (remover != null) {
-			professores.remove(remover);// remove o elemento que quer se atualizar da lista
-			resposta = professores.add(p);// e adiciona o elemento atualizado na lista
+			professores.remove(remover);
+			resposta = professores.add(p);
 		}
 		return resposta;
 	}
-	
+
 	@Override
 	public String toString() {
-		String listaProfessores = "\n";
-		for(Professor p : professores) {
-			listaProfessores += p.toString() + "\n";
+		StringBuilder sb = new StringBuilder();
+		for (Professor p : professores) {
+			sb.append(p.toString() + "\n");
 		}
-		return listaProfessores;
+		return sb.toString();
 	}
-
 }

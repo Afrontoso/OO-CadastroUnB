@@ -11,6 +11,10 @@ public class Cadastro<T> {
     public Cadastro() {
         this.lista = new ArrayList<>();
     }
+    
+    public List<T> getLista() {
+    	return lista;
+    }
 
     public boolean cadastrar(T item) {
     	boolean cadastrou = lista.add(item);
@@ -19,18 +23,13 @@ public class Cadastro<T> {
 
     public Aluno pesquisarAluno(String matricula) {
 		for (T t: lista) {
-			if (t.getMatricula().equalsIgnoreCase(matricula)) {
+			if (t. getMatricula().equalsIgnoreCase(matricula)) {
 				return t;
 			}
 		}
 		return null;
 	}
-    
-    
-    public List<T> listar() {
-    	
-        return lista;
-    }
+   
     public boolean remover(T item) {
 		boolean removeu = false; 
 		if (lista.contains(item)) {

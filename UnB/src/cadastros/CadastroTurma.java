@@ -5,42 +5,40 @@ import java.util.List;
 
 import app.Turma;
 
-
-public class CadastroTurma extends Cadastro{
+public class CadastroTurma extends Cadastro<Turma> {
 	int numTurmas;
 	private List<Turma> turmas;
-	
+
 	public CadastroTurma() {
 		this.numTurmas = 0;
 		this.turmas = new ArrayList<Turma>();
-		
 	}
-	
+
 	public List<Turma> getTurmas() {
 		return turmas;
 	}
-	
+
 	public boolean cadastrarTurma(Turma t) {
 		boolean cadastrou = turmas.add(t);
 		if (cadastrou) {
-			numTurmas = turmas.size();//mostra o tamanho da lista
+			numTurmas = turmas.size();// mostra o tamanho da lista
 		}
 		return cadastrou;
 	}
 
 	public Turma pesquisarTurma(String codigo) {
-		for (Turma t: turmas) {
-			if (t.getCodigo().equalsIgnoreCase(codigo)) {//dentro do loop pega as matricula dos alunos e compara como a matricula digitada ignortando a caixa alta
-				return t;//retorna o aluno que for igual
+		for (Turma t : turmas) {
+			if (t.getCodigo().equalsIgnoreCase(codigo)) {
+				return t;
 			}
 		}
 		return null;
 	}
-	
+
 	public boolean removerTurma(Turma t) {
-		boolean removeu = false; 
-		if (turmas.contains(t)) {//ve se contem o objeto na lista
-			removeu = turmas.remove(t);//remove o aluno com aquela matricula
+		boolean removeu = false;
+		if (turmas.contains(t)) {
+			removeu = turmas.remove(t);
 		}
 		return removeu;
 	}
@@ -48,19 +46,19 @@ public class CadastroTurma extends Cadastro{
 	public boolean atualizarTurma(String codigo, Turma t) {
 		boolean resposta = false;
 		Turma remover = pesquisarTurma(codigo);
-		if(remover != null) {
-			turmas.remove(remover);//remove o elemento que quer se atualizar da lista
-			resposta = turmas.add(t);// e adiciona o elemento atualizado na lista
+		if (remover != null) {
+			turmas.remove(remover);
+			resposta = turmas.add(t);
 		}
 		return resposta;
 	}
-	
+
 	@Override
 	public String toString() {
-		String listaTurmas = "\n";
-		for(Turma t : turmas) {
-			listaTurmas += t.toString() + "\n";
+		StringBuilder resposta = new StringBuilder();
+		for (Turma t : turmas) {
+			resposta.append(t.toString()).append("\n");
 		}
-		return listaTurmas;
+		return resposta.toString();
 	}
 }

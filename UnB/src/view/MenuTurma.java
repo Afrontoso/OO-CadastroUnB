@@ -13,8 +13,8 @@ import model.exception.ProfessorNaoAtribuidoException;
 public class MenuTurma {
 
 	// int numTurmas;
-//	private List<Turma> turma;
-	private static List<Turma> listaTurmas = new ArrayList<>();
+//	private static List<Turma> turma;
+//	private static List<Turma> listaTurmas = new ArrayList<>();
 
 	private static CadastroProfessor cadastroProfessor;
 	private static CadastroDisciplina cadastroDisciplina;
@@ -27,7 +27,7 @@ public class MenuTurma {
 		cadastroAluno = cadAluno;
 	}
 
-	public static Turma dadosNovaTurma()
+	public static Turma  dadosNovaTurma()
 			throws CampoEmBrancoException, ProfessorNaoAtribuidoException, DisciplinaNaoAtribuidaException {
 		JOptionPane.showMessageDialog(null, "Todos os campos são obrigatorios!");
 		String codigo = lerCodigo();
@@ -39,6 +39,7 @@ public class MenuTurma {
 		Disciplina disciplina = lerDisciplina();
 
 		List<Aluno> alunos = lerAlunos(qtdVagas);
+		
 		return new Turma(codigo, professor, disciplina, diaHora, semestre, qtdVagas, alunos);
 	}
 
@@ -97,10 +98,9 @@ public class MenuTurma {
 	private static List<Aluno> lerAlunos(int qtdVagas) {
 		List<Aluno> alunos = new ArrayList<>();
 		int vagasDisponiveis = qtdVagas;
-
 		for (int i = 0; i < qtdVagas; i++) {
 			String matriculaAluno = JOptionPane
-					.showInputDialog("Informe a matrícula do aluno (ou deixe em branco para finalizar): à "
+					.showInputDialog("Informe a matrícula do aluno (ou deixe em branco para finalizar): há "
 							+ vagasDisponiveis + " vagas!\n" + cadastroAluno.toString());
 
 			if (matriculaAluno.isEmpty()) {
@@ -110,7 +110,10 @@ public class MenuTurma {
 			if (aluno == null) {
 				JOptionPane.showMessageDialog(null, "Aluno não encontrado.");
 				i--; // Repetir a iteração para substituir a entrada inválida.
-			} else {
+			} else if(alunos.contains(aluno)){
+				JOptionPane.showMessageDialog(null, "Aluno já matriculado.");
+				i--;
+			}else {
 				alunos.add(aluno);
 				vagasDisponiveis--;
 			}
@@ -118,43 +121,11 @@ public class MenuTurma {
 		return alunos;
 	}
 	
-	public static void imprimirListaPresenca() {
-		String codigoTurma = JOptionPane.showInputDialog("Digite o código da turma:");
-        Turma turmaEncontrada = null;
-        
-        // Procurando a turma na lista
-        for (Turma turma : listaTurmas) {
-            if (turma.getCodigo().equals(codigoTurma)) {
-                turmaEncontrada = turma;
-                break;
-            }
-        }
-
-        if (turmaEncontrada != null) {
-            StringBuilder listaPresenca = new StringBuilder();
-            listaPresenca.append("Disciplina: ").append(turmaEncontrada.getDisciplina().getNome()).append("\n");
-            listaPresenca.append("Professor: ").append(turmaEncontrada.getProfessor().getNome()).append("\n");
-            listaPresenca.append("Código da Turma: ").append(turmaEncontrada.getCodigo()).append("\n");
-            listaPresenca.append("Alunos:\n");
-
-            for (Aluno aluno : turmaEncontrada.getAlunos()) {
-                listaPresenca.append("Matrícula: ").append(aluno.getMatricula()).append(", Nome: ").append(aluno.getNome()).append("\n");
-            }
-
-            JOptionPane.showMessageDialog(null, listaPresenca.toString());
-        } else {
-            JOptionPane.showMessageDialog(null, "Turma não encontrada!");
-        }
-	}
-
-	
-	
-	
 
 	public static void menuTurma(CadastroTurma cadTurma)
 			throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar turma\n" + "2 - Pesquisar turma\n"
-				+ "3 - Atualizar turma\n" + "4 - Remover turma\n" + "0 - Voltar para menu anterior";
+				+ "3 - Atualizar turma\n" + "4 - Remover turma\n" + "5 - Lista de turmas cadastradas\n" + "0 - Voltar para menu anterior";
 
 		int opcao = -1;
 		do {
@@ -166,7 +137,6 @@ public class MenuTurma {
 				switch (opcao) {
 				case 1:
 					Turma novaTurma = dadosNovaTurma();
-					listaTurmas.add(novaTurma);
 					boolean b = cadTurma.cadastrarTurma(novaTurma);
 					if (b) {
 						JOptionPane.showMessageDialog(null, "MATRICULA CONCLUIDA\nTURMA: " + novaTurma.getCodigo()
@@ -178,9 +148,9 @@ public class MenuTurma {
 					String codigo = lerCodigo();
 					Turma t = cadTurma.pesquisarTurma(codigo);
 					if (t != null) {
-						JOptionPane.showMessageDialog(null, t.toString());
+						JOptionPane.showMessageDialog(null, t.toStringAlunos());
 					} else {
-						JOptionPane.showMessageDialog(null, "Codigo incorreta ou não existe.");
+						JOptionPane.showMessageDialog(null, "Código de turma incorreta ou não existe.");
 					}
 					break;
 
@@ -202,24 +172,22 @@ public class MenuTurma {
 						System.gc();
 					}
 				case 5:
-					
-					//JOptionPane.showMessageDialog(null, "Lista de Turmas cadastradas\n" + cadTurma.toString());
-					imprimirListaPresenca();
+					JOptionPane.showMessageDialog(null, "Lista de Turmas cadastradas\n" + cadTurma.toString());
 					break;
 					
 				case 0:
 					return;
 					
 				default:
-					JOptionPane.showMessageDialog(null, "Nenhuma opcao valida.\n" + "Tente novamente!");
+					JOptionPane.showMessageDialog(null, "Nenhuma opção valida.\n" + "Tente novamente!");
 					opcao = -1;
 					break;
 					
 				}
 			} catch (ProfessorNaoAtribuidoException e) {
-				JOptionPane.showMessageDialog(null, "Nenhum professor associado a turma");
+				JOptionPane.showMessageDialog(null, "Nenhum professor associado a essa turma");
 			} catch (DisciplinaNaoAtribuidaException e) {
-				JOptionPane.showMessageDialog(null, "Nenhuma disciplina associado a turma");
+				JOptionPane.showMessageDialog(null, "Nenhuma disciplina associado a essa turma");
 			} catch (CampoEmBrancoException e) {
 				JOptionPane.showMessageDialog(null,
 						"Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");

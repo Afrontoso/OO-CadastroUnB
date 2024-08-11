@@ -1,36 +1,37 @@
 package app;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
 	String codigo, diaHora, semestre;
 	int qtdVagas;
-	
+
 	Professor professor;
 	Disciplina disciplina;
 	private List<Aluno> alunos;
 
-	
-	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas, List<Aluno> alunos) {
+	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre,
+			int qtdVagas, List<Aluno> alunos) {
 		this.codigo = codigo;
 		this.diaHora = diaHora;
 		this.semestre = semestre;
 		this.qtdVagas = qtdVagas;
 		this.professor = professor;
 		this.disciplina = disciplina;
-		
-		this.alunos = new ArrayList<Aluno>();
+
+		this.alunos = alunos;
+//		this.alunos = new ArrayList<Aluno>();
 	}
-	
+
 	public boolean adicionarAluno(Aluno aluno) {
-        if (alunos.size() < qtdVagas) {
-            alunos.add(aluno);
-            return true;
-        }
-        return false;
-    }
-	
+		if (alunos.size() < qtdVagas) {
+			alunos.add(aluno);
+			return true;
+		}
+		return false;
+	}
+
 	public final String getCodigo() {
 		return codigo;
 	}
@@ -46,50 +47,46 @@ public class Turma {
 	public final int getQtdVagas() {
 		return qtdVagas;
 	}
-	
+
 	public Professor getProfessor() {
 		return professor;
 	}
-	
+
 	public Disciplina getDisciplina() {
 		return disciplina;
 	}
-	
+
 	public final List<Aluno> getAlunos() {
 		return alunos;
-	}	
+	}
+
+	public String toStringAlunos() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Disciplina: ").append(disciplina.getNome()).append("\n");
+		sb.append("Professor(a): ").append(professor.getNome()).append("\n");
+		sb.append("Código da Turma: ").append(getCodigo()).append("\n");
+
+		sb.append('(').append(diaHora).append(" - ").append(semestre).append(")").append("\n\n");
+		sb.append("Alunos:\n");
+//		resposta.append(getAlunos());		
+
+		for (Aluno a : alunos) {
+//			resposta.append(a);
+			sb.append("Nome: " + a.getNome()).append(",  ");
+			sb.append("Matrícula: " + a.getMatricula() + '\n');
+		}
+		return sb.toString();
+	}
+
 	public String toString() {
-		StringBuilder resposta = new StringBuilder();
-		resposta.append("DISCIPLINA: ");
-		resposta.append(disciplina.getNome() + " CODIGO: " + getCodigo());
-		resposta.append("\nPROFESSOR(A): ");
-		resposta.append(professor.getNome() + "\n");
-		resposta.append('(' + semestre  + " - " + diaHora + ")\n");
-		
-		for(Aluno a : alunos) {
-			resposta.append(a);
-			resposta.append("NOME: " + a.getNome() + '\n');
-			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
-			System.out.println("To no loop");
-		}
-		
-		return resposta.toString();
-	}
+		StringBuilder sb = new StringBuilder();
+		sb.append("Disciplina: ").append(disciplina.getNome()).append("\n");
+		sb.append("Professor(a): ").append(professor.getNome()).append("\n");
+		sb.append("Código da Turma: ").append(getCodigo()).append("\n");
 
+		sb.append('(').append(diaHora).append(" - ").append(semestre).append(")").append("\n\n");
+		sb.append("Alunos:\n");
 
-	
-	public String toString(boolean listaPresenca) {
-		StringBuilder resposta = new StringBuilder();
-		for(Aluno a : alunos) {
-			resposta.append(a);
-			resposta.append("NOME: " + a.getNome() + '\n');
-			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
-		
-		}
-		return resposta.toString();
+		return sb.toString();
 	}
-	protected void finalize() throws Throwable {
-		System.out.println("Destruindo objeto: " + this);
-	}
-	
 }

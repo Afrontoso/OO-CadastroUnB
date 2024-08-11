@@ -25,9 +25,9 @@ public class MenuDisciplina {
 	}
 
 	private static String lerCodigo() throws CampoEmBrancoException {
-		String nome = JOptionPane.showInputDialog("Informe o codigo da disciplina: ");
+		String nome = JOptionPane.showInputDialog("Informe o código da disciplina: ");
 		if (nome.isEmpty()) {
-			throw new CampoEmBrancoException("CODIGO");
+			throw new CampoEmBrancoException("CÓDIGO");
 		}
 		return nome;
 	}
@@ -42,7 +42,8 @@ public class MenuDisciplina {
 
 	public static void menuDisciplina(CadastroDisciplina cadDisciplina) {
 		String txt = "Informe a opção desejada \n" + "1 - Cadastrar disciplina\n" + "2 - Pesquisar disciplina\n"
-				+ "3 - Atualizar disciplina\n" + "4 - Remover disciplina\n" + "0 - Voltar para menu anterior";
+				+ "3 - Atualizar disciplina\n" + "4 - Remover disciplina\n"
+				+ "5 - Lista completa de disciplinas cadastradas\n" + "0 - Voltar para menu anterior";
 
 		int opcao = -1;
 		do {
@@ -88,7 +89,9 @@ public class MenuDisciplina {
 						System.gc();
 					}
 				case 5:
-					JOptionPane.showMessageDialog(null, "Lista de disciplinas cadastrada:\n" + cadDisciplina.toString());//Somente para verificar a lista
+					JOptionPane.showMessageDialog(null,
+							"Lista de disciplinas cadastrada:\n" + cadDisciplina.toString());// Somente para verificar a
+																								// lista
 					break;
 				case 0:
 					return;
@@ -99,7 +102,8 @@ public class MenuDisciplina {
 					break;
 				}
 			} catch (CampoEmBrancoException e) {
-				JOptionPane.showMessageDialog(null, "Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
+				JOptionPane.showMessageDialog(null,
+						"Opção em branco:\nCampo " + e.getMessage() + " esta em branco, tente novamente novamente");
 			} catch (NumberFormatException e) {
 				JOptionPane.showMessageDialog(null, "Opção invalida");
 				opcao = -1;
