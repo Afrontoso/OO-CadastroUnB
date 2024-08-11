@@ -10,6 +10,7 @@ public class Turma {
 	Professor professor;
 	Disciplina disciplina;
 	private List<Aluno> alunos;
+
 	
 	public Turma(String codigo, Professor professor, Disciplina disciplina, String diaHora, String semestre, int qtdVagas, List<Aluno> alunos) {
 		this.codigo = codigo;
@@ -56,13 +57,7 @@ public class Turma {
 	
 	public final List<Aluno> getAlunos() {
 		return alunos;
-	}
-	
-	protected void finalize() throws Throwable {
-		System.out.println("Destruindo objeto: " + this);
-	}
-	
-	
+	}	
 	public String toString() {
 		StringBuilder resposta = new StringBuilder();
 		resposta.append("DISCIPLINA: ");
@@ -83,15 +78,18 @@ public class Turma {
 
 
 	
-//	public String toString(boolean listaPresenca) {
-//		StringBuilder resposta = new StringBuilder();
-//		for(Aluno a : alunos) {
-//			resposta.append(a);
-//			resposta.append("NOME: " + a.getNome() + '\n');
-//			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
-//			
-//		}
-//		return resposta.toString();
-//	}
+	public String toString(boolean listaPresenca) {
+		StringBuilder resposta = new StringBuilder();
+		for(Aluno a : alunos) {
+			resposta.append(a);
+			resposta.append("NOME: " + a.getNome() + '\n');
+			resposta.append("MATRICULA: " + a.getMatricula() + '\n');
+		
+		}
+		return resposta.toString();
+	}
+	protected void finalize() throws Throwable {
+		System.out.println("Destruindo objeto: " + this);
+	}
 	
 }

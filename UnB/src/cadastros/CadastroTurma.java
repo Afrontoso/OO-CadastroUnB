@@ -6,7 +6,7 @@ import java.util.List;
 import app.Turma;
 
 
-public class CadastroTurma {
+public class CadastroTurma extends Cadastro{
 	int numTurmas;
 	private List<Turma> turmas;
 	

@@ -5,7 +5,7 @@ import java.util.List;
 
 import app.Disciplina;
 
-public class CadastroDisciplina {
+public class CadastroDisciplina extends Cadastro {
 	int numDisciplinas;
 	private List<Disciplina> disciplinas;
 

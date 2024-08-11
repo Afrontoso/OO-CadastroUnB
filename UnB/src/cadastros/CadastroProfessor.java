@@ -5,7 +5,7 @@ import java.util.List;
 
 import app.Professor;
 
-public class CadastroProfessor {
+public class CadastroProfessor extends Cadastro{
 	int numProfessores;
 	private List<Professor> professores;
 
