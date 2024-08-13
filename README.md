@@ -98,7 +98,6 @@ O código presente no diretório já realiza o cadastro de Alunos mas sem tratar
 | R16  | Remoção de Turmas                                                                             | O sistema deve permitir a remoção de uma turma existente.                                                  |
 | R17  | Associação de Alunos a Turmas                                                                 | O sistema deve permitir a associação de alunos a turmas.                                                   |
 | R18  | Obtenção do Número de Alunos em uma Turma                                                     | O sistema deve permitir a obtenção do número de alunos associados a uma turma.                             |
-Aqui está a atualização do README com a seção de exemplo de execução que você solicitou:
 
 ---
 
