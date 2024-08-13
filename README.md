@@ -98,6 +98,102 @@ O código presente no diretório já realiza o cadastro de Alunos mas sem tratar
 | R16  | Remoção de Turmas                                                                             | O sistema deve permitir a remoção de uma turma existente.                                                  |
 | R17  | Associação de Alunos a Turmas                                                                 | O sistema deve permitir a associação de alunos a turmas.                                                   |
 | R18  | Obtenção do Número de Alunos em uma Turma                                                     | O sistema deve permitir a obtenção do número de alunos associados a uma turma.                             |
+Aqui está a atualização do README com a seção de exemplo de execução que você solicitou:
+
+---
+
+## Exemplo de Execução
+
+Abaixo estão exemplos de execução do sistema, mostrando o processo de cadastro de um aluno, professor, disciplina, e turma.
+
+### 1. Menu Inicial
+![Escolha o cadatro](prints/menu_cadastro.png)
+
+### 2. Cadastro de Aluno
+![Escolha o opcao](prints/menu_cadastro_aluno.png)
+
+![Mensagem](prints/mensagem_campos_obrigados.png)
+
+#### Etapa 1: Inserção do Nome do Aluno
+![Cadastro de Aluno - Nome](prints/cadastro_aluno_nome.png)
+
+#### Etapa 2: Inserção do CPF do Aluno
+![Cadastro de Aluno - CPF](prints/cadastro_aluno_cpf.png)
+
+#### Etapa 3: Inserção do Email do Aluno
+![Cadastro de Aluno - Email](prints/cadastro_aluno_email.png)
+
+#### Etapa 4: Inserção da Matrícula do Aluno
+![Cadastro de Aluno - Matrícula](prints/cadastro_aluno_matricula.png)
+
+#### Etapa 5: Inserção do Curso do Aluno
+![Cadastro de Aluno - Curso](prints/cadastro_aluno_curso.png)
+
+#### Etapa 6: Confirmação do Cadastro 1
+![Cadastro de Aluno - Confirmação](prints/cadastro_aluno_confirmacao.png)
+
+#### Etapa 6.1: Confirmação do Cadastro 2
+![Cadastro de Aluno - Confirmação](prints/cadastro_aluno_confirmacao2.png)
+
+#### Lista de Alunos Cadastrados
+![Alunos Cadastrados](prints/aluno_cadastrado.png)
+
+#### Pesquisa de Aluno Cadastrado
+![Alunos Cadastrados](prints/aluno_pesquisa.png)
+
+#### Atualiza Aluno Cadastrado
+![Alunos Cadastrados](prints/aluno_atualiza.png)
+
+#### Delete Aluno Cadastrado
+![Alunos Cadastrados](prints/aluno_deleta.png)
+
+#### Lista de Alunos Cadastrados Atualizada
+![Alunos Cadastrados](prints/aluno_cadastrado_atualizada.png)
+
+### 3. Cadastro de Professor
+
+#### Mensagem Final do Cadastro de Professor
+![Cadastro de Professor - Final](prints/cadastro_professor_final.png)
+
+### 4. Cadastro de Disciplina
+
+#### Mensagem Final do Cadastro de Disciplina
+![Cadastro de Disciplina - Final](prints/cadastro_disciplina_final.png)
+
+### 5. Cadastro de Turma
+
+#### Etapa 1: Inserção do Código da Turma
+![Cadastro de Turma - Código](prints/cadastro_turma_codigo.png)
+
+#### Etapa 2: Inserção do Dia/Hora da Turma
+![Cadastro de Turma - DiaHora](prints/cadastro_turma_diahora.png)
+
+#### Etapa 3: Seleção do Semestre da Turma
+![Cadastro de Turma - Semestre](prints/cadastro_turma_semestre.png)
+
+#### Etapa 4: Inserção do Número de Vagas
+![Cadastro de Turma - Vagas](prints/cadastro_turma_vagas.png)
+
+#### Etapa 5: Seleção do Professor para a Turma
+![Cadastro de Turma - Professor](prints/cadastro_turma_professor.png)
+
+#### Etapa 6: Seleção da Dicisplina para a Turma
+![Cadastro de Turma - Disciplina](prints/cadastro_turma_dicisplina.png)
+
+#### Etapa 7: Seleção dos Alunos para a Turma
+![Cadastro de Turma - Alunos](prints/cadastro_turma_alunos.png)
+![Não podendo cadastrar o mesmo aluno](prints/cadastro_turma_nao_repete.png)
+
+#### Etapa 8: Confirmação do Cadastro da Turma
+![Cadastro de Turma - Confirmação](prints/cadastro_turma_confirmacao.png)
+
+### Etapa 9. Lista de Chamada
+![Lista de Chamada - Lista](prints/lista_de_chamada.png)
+
+### Etapa 9. Fechando...
+![Fechando](prints/fecha.png)
+
+---
 
 ## Como Executar
 
