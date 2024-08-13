@@ -162,16 +162,16 @@ Abaixo estão exemplos de execução do sistema, mostrando o processo de cadastr
 ### 5. Cadastro de Turma
 
 #### Etapa 1: Inserção do Código da Turma
-![Cadastro de Turma - Código](prints/cadastro_turma_codigo.png)
+Cadastro de Turma - Código
 
 #### Etapa 2: Inserção do Dia/Hora da Turma
-![Cadastro de Turma - DiaHora](prints/cadastro_turma_diahora.png)
+Cadastro de Turma - DiaHora
 
 #### Etapa 3: Seleção do Semestre da Turma
-![Cadastro de Turma - Semestre](prints/cadastro_turma_semestre.png)
+Cadastro de Turma - Semestre
 
 #### Etapa 4: Inserção do Número de Vagas
-![Cadastro de Turma - Vagas](prints/cadastro_turma_vagas.png)
+Cadastro de Turma - Vagas
 
 #### Etapa 5: Seleção do Professor para a Turma
 ![Cadastro de Turma - Professor](prints/cadastro_turma_professor.png)
