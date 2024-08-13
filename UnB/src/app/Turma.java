@@ -69,7 +69,6 @@ public class Turma {
 		sb.append('(').append(diaHora).append(" - ").append(semestre).append(")").append("\n\n");
 		sb.append("Alunos:\n");
 //		resposta.append(getAlunos());		
-
 		for (Aluno a : alunos) {
 //			resposta.append(a);
 			sb.append("Nome: " + a.getNome()).append(",  ");
@@ -83,10 +82,7 @@ public class Turma {
 		sb.append("Disciplina: ").append(disciplina.getNome()).append("\n");
 		sb.append("Professor(a): ").append(professor.getNome()).append("\n");
 		sb.append("Código da Turma: ").append(getCodigo()).append("\n");
-
-		sb.append('(').append(diaHora).append(" - ").append(semestre).append(")").append("\n\n");
-		sb.append("Alunos:\n");
-
+		sb.append('(').append(diaHora).append(" - ").append(semestre).append(")").append("\n");
 		return sb.toString();
 	}
 }
